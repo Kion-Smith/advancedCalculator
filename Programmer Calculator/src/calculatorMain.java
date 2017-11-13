@@ -6,8 +6,9 @@ public class calculatorMain
 	{
 		Calculator c = new Calculator();
 		c.setTitle("Calculator");
-		c.setSize(550,450);
+		c.setSize(620,570);
 		c.setVisible(true);
+		c.setResizable(false);
 		c.setLocationRelativeTo(null);
 		c.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
