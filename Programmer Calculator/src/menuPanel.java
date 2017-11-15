@@ -1,4 +1,5 @@
 
-public class menuPanel {
+public class menuPanel 
+{
 
 }
