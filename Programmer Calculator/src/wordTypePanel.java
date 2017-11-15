@@ -1,9 +1,41 @@
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
 public class wordTypePanel extends JPanel
 {
 	JRadioButton QwordButton,DwordButton,wordButton,byteButton;
+	ButtonGroup wordType;
+	
+	public wordTypePanel()
+	{
+		QwordButton = new JRadioButton("Qword");
+		DwordButton = new JRadioButton("Dword");
+		wordButton = new JRadioButton("Word");
+		byteButton = new JRadioButton("Byte");
+		
+		wordType.add(QwordButton);
+		wordType.add(DwordButton);
+		wordType.add(wordButton);
+		wordType.add(byteButton);
+		
+		setLayout(new GridBagLayout());
+		GridBagConstraints gc = new GridBagConstraints();
+		
+
+		add(QwordButton,gc);
+		add(DwordButton,gc);
+		add(wordButton,gc);
+		add(byteButton,gc);
+		
+		
+		
+		
+	}
 
 	//getters
 	public JRadioButton getQwordButton() 
