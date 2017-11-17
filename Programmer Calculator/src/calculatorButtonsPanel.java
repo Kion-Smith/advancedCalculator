@@ -10,9 +10,47 @@ public class calculatorButtonsPanel extends JPanel
 	
 	
 
+
 	public calculatorButtonsPanel()
 	{
+		//the value buttons
+		zeroButton = new JButton();
+		oneButton = new JButton();
+		twoButton = new JButton();
+		threeButton = new JButton();
+		fourButton = new JButton();
+		fiveButton =  new JButton();
+		sixButton =  new JButton();
+		sevenButton =  new JButton();
+		eightButton =  new JButton();
+		nineButton =  new JButton();
+		a_Button =  new JButton();
+		b_Button =  new JButton();
+		c_Button =  new JButton();
+		d_Button =  new JButton();
+		e_Button =  new JButton();
+		f_Button =  new JButton();
 		
+		//Functional buttons
+		addButton =  new JButton();
+		subButton =  new JButton();
+		multButton =  new JButton();
+		divButton =  new JButton();
+		signButton =  new JButton();
+		equalsButton =  new JButton();
+		modButton =  new JButton();
+		
+		//Disabled Buttons
+		decimalButton =  new JButton();
+		sqrtButton =  new JButton();
+		percentButton =  new JButton();
+		recipButton =  new JButton();
+		
+		//disable the buttons
+		decimalButton.setEnabled(false);
+		sqrtButton.setEnabled(false);
+		percentButton.setEnabled(false);
+		recipButton.setEnabled(false);
 	}
 	//Getters
 	public JButton getZeroButton() 
