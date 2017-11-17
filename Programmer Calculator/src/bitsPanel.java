@@ -4,6 +4,12 @@ import javax.swing.JTextArea;
 public class bitsPanel extends JPanel
 {
 	JTextArea bitsPanel;
+	
+	public bitsPanel()
+	{
+		bitsPanel = new JTextArea(5,20);
+		bitsPanel.setEditable(false);
+	}
 
 	public JTextArea getBitsPanel() 
 	{

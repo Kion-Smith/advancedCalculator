@@ -17,6 +17,13 @@ public class Calculator extends JFrame implements ActionListener
 	public Calculator()
 	{
 		// add the panels here
+		
+		mp = new menuPanel();
+		op = new outputPanel();
+		bp = new bitsPanel();
+		cbp = new calculatorButtonsPanel();
+		btp = new baseTypePanel();
+		wtp = new wordTypePanel();
 	}
 
 	
