@@ -1,7 +1,8 @@
+import javax.swing.JPanel;
 
-public class menuPanel 
+public class menuPanel extends JPanel
 {
-	public menuPanel()
+	public menuPanel() 
 	{
 		
 	}

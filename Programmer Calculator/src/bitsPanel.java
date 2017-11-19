@@ -1,23 +1,31 @@
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
 public class bitsPanel extends JPanel
 {
-	JTextArea bitsPanel;
+	JTextArea bitsTextArea;
 	
 	public bitsPanel()
 	{
-		bitsPanel = new JTextArea(5,20);
-		bitsPanel.setEditable(false);
+		bitsTextArea = new JTextArea(5,20);
+		bitsTextArea.setEditable(false);
+		
+		setLayout(new GridBagLayout());
+		GridBagConstraints gc = new GridBagConstraints();
+		
+		add(bitsTextArea,gc);
 	}
 
 	public JTextArea getBitsPanel() 
 	{
-		return bitsPanel;
+		return bitsTextArea;
 	}
 
 	public void setBitsPanel(JTextArea j)
 	{
-		bitsPanel = j;
+		bitsTextArea = j;
 	}
 }

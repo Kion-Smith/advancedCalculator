@@ -1,3 +1,5 @@
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -24,6 +26,18 @@ public class Calculator extends JFrame implements ActionListener
 		cbp = new calculatorButtonsPanel();
 		btp = new baseTypePanel();
 		wtp = new wordTypePanel();
+		
+		setLayout(new GridBagLayout());
+		GridBagConstraints gc = new GridBagConstraints();
+		
+		add(mp,gc);
+		add(op,gc);
+		add(bp,gc);
+		add(cbp,gc);
+		add(btp,gc);
+		add(wtp,gc);
+		
+		
 	}
 
 	
