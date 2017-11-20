@@ -17,6 +17,8 @@ public class baseTypePanel extends JPanel
 		octButton = new JRadioButton("Oct");
 		binButton = new JRadioButton("Bin");
 		
+		baseType = new ButtonGroup();
+		
 		baseType.add(hexButton);
 		baseType.add(decButton);
 		baseType.add(octButton);
@@ -25,10 +27,17 @@ public class baseTypePanel extends JPanel
 		setLayout(new GridBagLayout());
 		GridBagConstraints gc = new GridBagConstraints();
 		
-
+		gc.gridx =1;
+		gc.gridy =1;
 		add(hexButton,gc);
+		gc.gridx =2;
+		gc.gridy =2;
 		add(decButton,gc);
+		gc.gridx =3;
+		gc.gridy =3;
 		add(octButton,gc);
+		gc.gridx =4;
+		gc.gridy =4;
 		add(binButton,gc);
 	}
 	
