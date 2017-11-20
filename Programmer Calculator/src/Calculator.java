@@ -30,11 +30,30 @@ public class Calculator extends JFrame implements ActionListener
 		setLayout(new GridBagLayout());
 		GridBagConstraints gc = new GridBagConstraints();
 		
+		gc.gridx =1;
+		gc.gridy =1;
+		//
 		add(mp,gc);
+		
+		gc.gridx =2;
+		gc.gridy =2;
 		add(op,gc);
+		
+		gc.gridx =3;
+		gc.gridy =3;
 		add(bp,gc);
+		
+		gc.gridx =4;
+		gc.gridy =4;
+	//unimplemented	
 		add(cbp,gc);
+		
+		gc.gridx =5;
+		gc.gridy =5;
 		add(btp,gc);
+		
+		gc.gridx =6;
+		gc.gridy =6;
 		add(wtp,gc);
 		
 		

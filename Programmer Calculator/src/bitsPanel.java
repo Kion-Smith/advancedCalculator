@@ -15,7 +15,8 @@ public class bitsPanel extends JPanel
 		
 		setLayout(new GridBagLayout());
 		GridBagConstraints gc = new GridBagConstraints();
-		
+		gc.gridx =1;
+		gc.gridy =1;
 		add(bitsTextArea,gc);
 	}
 
