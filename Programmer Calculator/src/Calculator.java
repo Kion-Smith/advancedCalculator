@@ -4,23 +4,38 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
 
 
 public class Calculator extends JFrame implements ActionListener
 {
-	private menuPanel mp;
 	private outputPanel op;
 	private bitsPanel bp;
 	private calculatorButtonsPanel cbp;
 	private baseTypePanel btp;
 	private wordTypePanel wtp;
 	
+	JMenuBar menu;
+	JMenu viewMenu,editMenu,helpMenu;
+	
 	
 	public Calculator()
 	{
 		// add the panels here
+		menu = new JMenuBar();
 		
-		mp = new menuPanel();
+		viewMenu = new JMenu("View");
+		editMenu = new JMenu("Edit");
+		helpMenu = new JMenu("Help");
+		
+		menu.add(viewMenu);
+		menu.add(editMenu);
+		menu.add(helpMenu);
+		
+		setJMenuBar(menu);
+		
+
 		op = new outputPanel();
 		bp = new bitsPanel();
 		cbp = new calculatorButtonsPanel();
@@ -30,10 +45,7 @@ public class Calculator extends JFrame implements ActionListener
 		setLayout(new GridBagLayout());
 		GridBagConstraints gc = new GridBagConstraints();
 		
-		gc.gridx =1;
-		gc.gridy =1;
-		//
-		add(mp,gc);
+
 		
 		gc.gridx =2;
 		gc.gridy =2;
@@ -67,10 +79,6 @@ public class Calculator extends JFrame implements ActionListener
 	}
 
 	//getters
-	public menuPanel getMenuPanel() 
-	{
-		return mp;
-	}
 
 	public outputPanel getOutputPanel() 
 	{
@@ -102,10 +110,6 @@ public class Calculator extends JFrame implements ActionListener
 		bp = p;
 	}
 
-	public void setMenuPanel(menuPanel p) 
-	{
-		mp = p;
-	}
 
 	public void setCalculatorButtonsPanel(calculatorButtonsPanel p) 
 	{
