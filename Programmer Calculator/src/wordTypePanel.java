@@ -25,23 +25,46 @@ public class wordTypePanel extends JPanel
 		wordType.add(byteButton);
 		
 		setLayout(new GridBagLayout());
+		setBorder(javax.swing.BorderFactory.createEtchedBorder());
 		GridBagConstraints gc = new GridBagConstraints();
 		
-		gc.gridx =1;
-		gc.gridy =1;
-		add(QwordButton,gc);
-		
-		gc.gridx =2;
-		gc.gridy =2;
-		add(DwordButton,gc);
-		
-		gc.gridx =3;
-		gc.gridy =3;
-		add(wordButton,gc);
-		
-		gc.gridx =4;
-		gc.gridy =4;
-		add(byteButton,gc);
+
+
+        QwordButton.setText("Qword");
+     //   gc = new java.awt.GridBagConstraints();
+        gc.gridx = 0;
+        gc.gridy = 0;
+        gc.gridwidth = 4;
+        gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gc.insets = new java.awt.Insets(14, 13, 0, 25);
+        add(QwordButton, gc);
+
+        DwordButton.setText("Dword");
+    //    gc = new java.awt.GridBagConstraints();
+        gc.gridx = 0;
+        gc.gridy = 1;
+        gc.gridwidth = 3;
+        gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gc.insets = new java.awt.Insets(1, 13, 0, 0);
+        add(DwordButton, gc);
+
+        wordButton.setText("Word");
+      //  gc = new java.awt.GridBagConstraints();
+        gc.gridx = 0;
+        gc.gridy = 2;
+        gc.gridwidth = 2;
+        gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gc.insets = new java.awt.Insets(1, 13, 0, 0);
+        add(wordButton, gc);
+
+        byteButton.setSelected(true);
+        byteButton.setText("Byte");
+    //    gc = new java.awt.GridBagConstraints();
+        gc.gridx = 0;
+        gc.gridy = 3;
+        gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gc.insets = new java.awt.Insets(1, 13, 24, 0);
+        add(byteButton, gc);
 		
 		
 		
