@@ -8,11 +8,12 @@ import javax.swing.JTextArea;
 public class outputPanel extends JPanel
 {
 	public JTextArea outputTextArea;
+	JScrollPane scroll4Outout;
 
 	public outputPanel()
 	{
 		outputTextArea = new JTextArea(5,20);
-		JScrollPane scroll4Outout = new JScrollPane();
+		 scroll4Outout = new JScrollPane();
 		
 		outputTextArea.setEditable(false);
 		scroll4Outout.setViewportView(outputTextArea);
@@ -25,13 +26,15 @@ public class outputPanel extends JPanel
 		
 		gc.gridx = 0;
 		gc.gridy = 0;
-		gc.fill = java.awt.GridBagConstraints.BOTH;
-		gc.ipadx = 647;
-		gc.ipady = 80;
-		gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
+		gc.ipadx = 340;
+		gc.ipady = -10;
+		//gc.fill = java.awt.GridBagConstraints.BOTH;
+	//	gc.ipadx = 647;
+	//	gc.ipady = 80;
+	//	gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
 		gc.weightx = 1.0;
 		gc.weighty = 1.0;
-		gc.insets = new java.awt.Insets(2, 2, 2, 2);
+	//	gc.insets = new java.awt.Insets(2, 2, 2, 2);
 		add(outputTextArea,gc);
 	}
 	

@@ -1,5 +1,7 @@
+import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Insets;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -85,6 +87,7 @@ public class calculatorButtonsPanel extends JPanel
         setLayout(new GridBagLayout());
         GridBagConstraints gc = new GridBagConstraints();
 
+        
         a_Button.setText("A");
         gc.gridx = 2;
         gc.gridy = 0;
@@ -530,7 +533,13 @@ public class calculatorButtonsPanel extends JPanel
         gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gc.insets = new java.awt.Insets(9, 2, 2, 0);
         add(emptyButton11, gc);
+        
+        
+        
+      
 	}
+	
+	
 	//Getters
 	public JButton getZeroButton() 
 	{

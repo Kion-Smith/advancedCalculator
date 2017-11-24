@@ -8,6 +8,7 @@ import javax.swing.JTextArea;
 public class bitsPanel extends JPanel
 {
 	JTextArea bitsTextArea;
+	JScrollPane scroll4Bytes;
 	
 	public bitsPanel()
 	{
@@ -40,10 +41,12 @@ public class bitsPanel extends JPanel
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(9, 15, 0, 15);
         getContentPane().add(byteOutputPanel, gridBagConstraints);*/
+		
+		setBorder(javax.swing.BorderFactory.createEtchedBorder());
         
 		bitsTextArea = new JTextArea(5,20);
 		bitsTextArea.setEditable(false);
-		JScrollPane scroll4Bytes = new JScrollPane();//mark for deletion
+		 scroll4Bytes = new JScrollPane();//mark for deletion
 		
 		scroll4Bytes.setViewportView(bitsTextArea);
 		
@@ -51,14 +54,14 @@ public class bitsPanel extends JPanel
 		GridBagConstraints gc = new GridBagConstraints();
 		gc.gridx = 0;
 		gc.gridy = 0;
-		gc.fill = java.awt.GridBagConstraints.BOTH;
-		gc.ipadx = 647;
-		gc.ipady = 80;
+	//	gc.fill = java.awt.GridBagConstraints.BOTH;
+		gc.ipadx = 340;
+		gc.ipady = 20;
 		gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
 		gc.weightx = 1.0;
 		gc.weighty = 1.0;
-		gc.insets = new java.awt.Insets(2, 2, 2, 2);
-		add(scroll4Bytes,gc);
+	//	gc.insets = new java.awt.Insets(2, 2, 2, 2);
+		add(bitsTextArea,gc);
 
 	}
 

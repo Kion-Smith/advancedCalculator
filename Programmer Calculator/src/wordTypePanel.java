@@ -34,7 +34,7 @@ public class wordTypePanel extends JPanel
      //   gc = new java.awt.GridBagConstraints();
         gc.gridx = 0;
         gc.gridy = 0;
-        gc.gridwidth = 4;
+        gc.gridwidth = 3;
         gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gc.insets = new java.awt.Insets(14, 13, 0, 25);
         add(QwordButton, gc);
