@@ -47,25 +47,47 @@ public class Calculator extends JFrame implements ActionListener
 		
 
 		
-		gc.gridx =2;
-		gc.gridy =2;
+		gc.gridx = 0;
+		gc.gridy = 0;
+		gc.gridwidth = 2;
+		gc.ipadx = 647;
+		gc.ipady = 80;
+        gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gc.insets = new java.awt.Insets(16, 15, 0, 15);
 		add(op,gc);
 		
-		gc.gridx =3;
-		gc.gridy =3;
+       
+		gc.gridx = 0;
+		gc.gridy = 1;
+        gc.gridwidth = 2;
+        gc.ipadx = 647;
+        gc.ipady = 80;
+        gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gc.insets = new java.awt.Insets(9, 15, 0, 15);
 		add(bp,gc);
 		
-		gc.gridx =4;
-		gc.gridy =4;
-	//unimplemented	
+		gc.gridx = 1;
+		gc.gridy = 2;
+		gc.gridheight = 2;
+		gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
+		gc.insets = new java.awt.Insets(9, 9, 16, 15);
 		add(cbp,gc);
 		
-		gc.gridx =5;
-		gc.gridy =5;
+
+		gc.gridx = 0;
+		gc.gridy = 2;
+		gc.ipadx = 34;
+		gc.ipady = 13;
+		gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
+		gc.insets = new java.awt.Insets(9, 15, 0, 0);
 		add(btp,gc);
 		
-		gc.gridx =6;
-		gc.gridy =6;
+		gc.gridx = 0;
+		gc.gridy = 3;
+		gc.ipadx = 12;
+		gc.ipady = 10;
+        gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gc.insets = new java.awt.Insets(9, 15, 16, 0);
 		add(wtp,gc);
 		
 		

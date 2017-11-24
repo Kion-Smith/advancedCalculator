@@ -8,7 +8,7 @@ public class calculatorMain
 		c.setTitle("Calculator");
 		c.setSize(620,570);
 		c.setVisible(true);
-		c.setResizable(false);
+		c.setResizable(true);///set to false later
 		c.setLocationRelativeTo(null);
 		c.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
