@@ -1,5 +1,6 @@
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -67,14 +68,9 @@ public class Calculator extends JFrame implements ActionListener
       //  gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
      //   gc.insets = new java.awt.Insets(9, 15, 0, 15);
 		add(bp,gc);
-		/*
-		gc.gridx = 1;
-		gc.gridy = 2;
-		gc.gridheight = 2;
-		gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
-//		gc.insets = new java.awt.Insets(9, 9, 16, 15);
-		add(cbp,gc);
 		
+
+/*		
 */
 		gc.gridx = 0;
 		gc.gridy = 2;
@@ -92,6 +88,14 @@ public class Calculator extends JFrame implements ActionListener
  //       gc.insets = new java.awt.Insets(9, 15, 16, 0);
 		add(wtp,gc);
 	
+		gc.gridx = 1;
+		gc.gridy = 2;
+		gc.anchor = GridBagConstraints.FIRST_LINE_END;
+		gc.ipadx = 100;
+		gc.gridheight = 2;
+//		
+//		gc.insets = new Insets(9, 9, 16, 15);
+		add(cbp,gc);
 		
 	}
 
