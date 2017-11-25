@@ -91,7 +91,7 @@ public class Calculator extends JFrame implements ActionListener
 		gc.gridx = 1;
 		gc.gridy = 2;
 		gc.anchor = GridBagConstraints.FIRST_LINE_END;
-		gc.ipadx = 100;
+		gc.ipadx = 200;
 		gc.gridheight = 2;
 //		
 //		gc.insets = new Insets(9, 9, 16, 15);
