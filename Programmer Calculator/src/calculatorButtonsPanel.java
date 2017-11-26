@@ -243,6 +243,7 @@ public class calculatorButtonsPanel extends JPanel
        
         gc.gridx = 1;
         gc.gridy = 0;
+        gc.ipadx = 1;
         gc.ipady = 16;
         gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gc.insets = new java.awt.Insets(2, 9, 0, 0);
