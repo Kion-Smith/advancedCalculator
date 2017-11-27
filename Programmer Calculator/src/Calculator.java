@@ -1,12 +1,15 @@
+import java.awt.Component;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
+import javax.swing.JRadioButton;
 
 
 public class Calculator extends JFrame implements ActionListener
@@ -78,11 +81,74 @@ public class Calculator extends JFrame implements ActionListener
 		gc.insets = new Insets(5, 120, 0, 5);
 		add(cbp,gc);
 		
+		Component[] baseTypeComp = btp.getComponents();
+		for(int i =0;i<baseTypeComp.length;i++)
+		{
+			if(baseTypeComp[i] instanceof JRadioButton)
+			{
+				JRadioButton temp = (JRadioButton)baseTypeComp[i];
+				temp.addActionListener(this);
+			}
+		}
+		
+		Component[] wordTypeComp = wtp.getComponents();
+		for(int i =0;i<wordTypeComp.length;i++)
+		{
+			if(wordTypeComp[i] instanceof JRadioButton)
+			{
+				JRadioButton temp = (JRadioButton)wordTypeComp[i];
+				temp.addActionListener(this);
+			}
+		}
+		
+		
+		Component[] calcButtonsComp = cbp.getComponents();
+		for(int i =0;i<calcButtonsComp.length;i++)
+		{
+			if(calcButtonsComp[i] instanceof JButton)
+			{
+				JButton temp = (JButton)calcButtonsComp[i];
+				temp.addActionListener(this);
+			}
+		}
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 
 	
 	public void actionPerformed(ActionEvent e) 
 	{
+
+		int num1;
+		String sign = "";
+		
+		if(btp.getHexButton().isSelected())
+		{
+			cbp.a_Button.setEnabled(true);
+			cbp.b_Button.setEnabled(true);
+			cbp.c_Button.setEnabled(true);
+			cbp.d_Button.setEnabled(true);
+			cbp.e_Button.setEnabled(true);
+			cbp.f_Button.setEnabled(true);
+
+		}
+		else
+		{
+			cbp.a_Button.setEnabled(false);
+			cbp.b_Button.setEnabled(false);
+			cbp.c_Button.setEnabled(false);
+			cbp.d_Button.setEnabled(false);
+			cbp.e_Button.setEnabled(false);
+			cbp.f_Button.setEnabled(false);
+			
+		}
+		
 		
 		
 	}

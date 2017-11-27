@@ -203,6 +203,7 @@ public class calculatorButtonsPanel extends JPanel
         
         a_Button.setMargin( new Insets(0,0,0,0));
         a_Button.setFont(new Font("Arial", Font.PLAIN, 16) );
+        a_Button.setEnabled(false);
         gc.gridx = 2;
         gc.gridy = 0;
         gc.ipadx = 28;
@@ -212,7 +213,8 @@ public class calculatorButtonsPanel extends JPanel
 
 
         b_Button.setMargin( new Insets(0,0,0,0));
-        b_Button.setFont(new Font("Arial", Font.PLAIN, 16) );        
+        b_Button.setFont(new Font("Arial", Font.PLAIN, 16) ); 
+        b_Button.setEnabled(false);
         gc.gridx = 2;
         gc.gridy = 1;
         gc.ipadx = 28;
@@ -221,7 +223,8 @@ public class calculatorButtonsPanel extends JPanel
         add(b_Button, gc);
 
         c_Button.setMargin( new Insets(0,0,0,0));
-        c_Button.setFont(new Font("Arial", Font.PLAIN, 16) );        
+        c_Button.setFont(new Font("Arial", Font.PLAIN, 16) );  
+        c_Button.setEnabled(false);
         gc.gridx = 2;
         gc.gridy = 2;
         gc.ipadx = 28;
@@ -230,7 +233,8 @@ public class calculatorButtonsPanel extends JPanel
         add(c_Button, gc);
 
         d_Button.setMargin( new Insets(0,0,0,0));
-        d_Button.setFont(new Font("Arial", Font.PLAIN, 16) );        
+        d_Button.setFont(new Font("Arial", Font.PLAIN, 16) );
+        d_Button.setEnabled(false);
         gc.gridx = 2;
         gc.gridy = 3;
         gc.ipadx = 28;
@@ -239,7 +243,8 @@ public class calculatorButtonsPanel extends JPanel
         add(d_Button, gc);
 
         e_Button.setMargin( new Insets(0,0,0,0));
-        e_Button.setFont(new Font("Arial", Font.PLAIN, 16) );        
+        e_Button.setFont(new Font("Arial", Font.PLAIN, 16) );   
+        e_Button.setEnabled(false);
         gc.gridx = 2;
         gc.gridy = 4;
         gc.ipadx = 28;
@@ -248,7 +253,8 @@ public class calculatorButtonsPanel extends JPanel
         add(e_Button, gc);
 
         f_Button.setMargin( new Insets(0,0,0,0));
-        f_Button.setFont(new Font("Arial", Font.PLAIN, 16) );        
+        f_Button.setFont(new Font("Arial", Font.PLAIN, 16) ); 
+        f_Button.setEnabled(false);
         gc.gridx = 2;
         gc.gridy = 5;
         gc.ipadx = 28;
