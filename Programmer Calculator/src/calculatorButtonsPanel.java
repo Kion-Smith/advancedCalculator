@@ -1,4 +1,5 @@
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -87,306 +88,349 @@ public class calculatorButtonsPanel extends JPanel
         setLayout(new GridBagLayout());
         GridBagConstraints gc = new GridBagConstraints();
         
-        emptyButton6.setPreferredSize(new java.awt.Dimension(63, 29));
+
        
         
         gc.gridx = 0;
         gc.gridy = 0;
-        gc.ipadx = 30;
-        gc.ipady = 36;
+        gc.ipadx = 11;
+        gc.ipady = 28;
         gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gc.insets = new java.awt.Insets(2, 2, 0, 0);
         add(emptyButton6, gc);
         
         gc.gridx = 0;
         gc.gridy = 1;
-        gc.ipadx = 30;
-        gc.ipady = 36;
-        gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gc.insets = new java.awt.Insets(9, 2, 0, 0);
+        gc.ipadx = 11;
+        gc.ipady = 28;
+    //    gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gc.insets = new java.awt.Insets(0, 2, 0, 0);
         add(emptyButton7, gc);
         
         gc.gridx = 0;
         gc.gridy = 2;
-        gc.ipadx = 30;
-        gc.ipady = 36;
-        gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gc.insets = new java.awt.Insets(9, 2, 0, 0);
+        gc.ipadx = 11;
+        gc.ipady = 28;
+    //    gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gc.insets = new java.awt.Insets(-8, 2, 0, 0);
         add(emptyButton8, gc);
         
         gc.gridx = 0;
         gc.gridy = 3;
-        gc.ipadx = 30;
-        gc.ipady = 36;
-        gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gc.insets = new java.awt.Insets(9, 2, 0, 0);
+        gc.ipadx = 11;
+        gc.ipady = 28;
+     //   gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gc.insets = new java.awt.Insets(-16, 2, 0, 0);
         add(emptyButton9, gc);
         
         gc.gridx = 0;
         gc.gridy = 4;
-        gc.ipadx = 30;
-        gc.ipady = 36;
-        gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gc.insets = new java.awt.Insets(9, 2, 0, 0);
+        gc.ipadx = 11;
+        gc.ipady = 28;
+     //   gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gc.insets = new java.awt.Insets(-24, 2, 0, 0);
         add(emptyButton10, gc);
         
         gc.gridx = 0;
         gc.gridy = 5;
-        gc.ipadx = 30;
-        gc.ipady = 36;
-        gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gc.insets = new java.awt.Insets(9, 2, 2, 0);
+        gc.ipadx = 11;
+        gc.ipady = 28;
+     //   gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gc.insets = new java.awt.Insets(-32, 2, 0, 0);
         add(emptyButton11, gc);
+        
+        
+        gc.gridx = 1;
+        gc.gridy = 5;
+        gc.ipadx = 11;
+        gc.ipady = 28;
+        gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gc.insets = new java.awt.Insets(-32, 9, 2, 0);
+        add(emptyButton1, gc);
+        
+        gc.gridx = 1;
+        gc.gridy = 4;
+        gc.ipadx = 11;
+        gc.ipady = 28;
+        gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gc.insets = new java.awt.Insets(-24, 9, 0, 0);
+        add(emptyButton2, gc);
+        
+        gc.gridx = 1;
+        gc.gridy = 3;
+        gc.ipadx = 11;
+        gc.ipady = 28;
+        gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gc.insets = new java.awt.Insets(-16, 9, 0, 0);
+        add(emptyButton3, gc);
+        
+        gc.gridx = 1;
+        gc.gridy = 2;
+        gc.ipadx = 11;
+        gc.ipady = 28;
+        gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gc.insets = new java.awt.Insets(-8, 9, 0, 0);
+        add(emptyButton4, gc);
+        
+       
+        gc.gridx = 1;
+        gc.gridy = 1;
+        gc.ipadx = 11;
+        gc.ipady = 28;
+        gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gc.insets = new java.awt.Insets(0, 9, 0, 0);
+        add(emptyButton5, gc);
+
+        modButton.setText("Mod");
+   
+        Font font = new Font("Arial", Font.PLAIN, 12);
+        modButton.setFont(font);
+        
+        modButton.setMargin(new Insets(0,0,0,0));
+        		
+        gc.gridx = 1;
+        gc.gridy = 0;
+        gc.ipadx = 16;
+        gc.ipady = 17;
+        gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gc.insets = new java.awt.Insets(2, 9, 0, 0);
+        add(modButton, gc);
 
         
         a_Button.setText("A");
+        a_Button.setMargin( new Insets(0,0,0,0));
+        a_Button.setFont(new Font("Arial", Font.PLAIN, 16) );
         gc.gridx = 2;
         gc.gridy = 0;
-        gc.ipadx = 20;
-        gc.ipady = 16;
+        gc.ipadx = 28;
+        gc.ipady = 13;
         gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gc.insets = new java.awt.Insets(2, 9, 0, 0);
         add(a_Button, gc);
 
         b_Button.setText("B");
+        b_Button.setMargin( new Insets(0,0,0,0));
+        b_Button.setFont(new Font("Arial", Font.PLAIN, 16) );
         
         gc.gridx = 2;
         gc.gridy = 1;
-        gc.ipadx = 22;
-        gc.ipady = 16;
+        gc.ipadx = 28;
+        gc.ipady = 13;
         gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gc.insets = new java.awt.Insets(9, 9, 0, 0);
+        gc.insets = new java.awt.Insets(0, 9, 0, 0);
         add(b_Button, gc);
 
         c_Button.setText("C");
+        c_Button.setMargin( new Insets(0,0,0,0));
+        c_Button.setFont(new Font("Arial", Font.PLAIN, 16) );
         
         gc.gridx = 2;
         gc.gridy = 2;
-        gc.ipadx = 20;
-        gc.ipady = 16;
+        gc.ipadx = 28;
+        gc.ipady = 13;
         gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gc.insets = new java.awt.Insets(9, 9, 0, 0);
+        gc.insets = new java.awt.Insets(-8, 9, 0, 0);
         add(c_Button, gc);
 
         d_Button.setText("D");
+        d_Button.setMargin( new Insets(0,0,0,0));
+        d_Button.setFont(new Font("Arial", Font.PLAIN, 16) );
         
         gc.gridx = 2;
         gc.gridy = 3;
-        gc.ipadx = 20;
-        gc.ipady = 16;
+        gc.ipadx = 28;
+        gc.ipady = 13;
         gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gc.insets = new java.awt.Insets(9, 9, 0, 0);
+        gc.insets = new java.awt.Insets(-16, 9, 0, 0);
         add(d_Button, gc);
 
         e_Button.setText("E");
+        e_Button.setMargin( new Insets(0,0,0,0));
+        e_Button.setFont(new Font("Arial", Font.PLAIN, 16) );
         
         gc.gridx = 2;
         gc.gridy = 4;
-        gc.ipadx = 22;
-        gc.ipady = 16;
+        gc.ipadx = 28;
+        gc.ipady = 13;
         gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gc.insets = new java.awt.Insets(9, 9, 0, 0);
+        gc.insets = new java.awt.Insets(-24, 9, 0, 0);
         add(e_Button, gc);
 
         f_Button.setText("F");
+        f_Button.setMargin( new Insets(0,0,0,0));
+        f_Button.setFont(new Font("Arial", Font.PLAIN, 16) );
         
         gc.gridx = 2;
         gc.gridy = 5;
-        gc.ipadx = 22;
-        gc.ipady = 16;
+        gc.ipadx = 28;
+        gc.ipady = 13;
         gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gc.insets = new java.awt.Insets(9, 9, 2, 0);
+        gc.insets = new java.awt.Insets(-32, 9, 2, 0);
         add(f_Button, gc);
         
-        gc.gridx = 1;
-        gc.gridy = 5;
-        gc.ipadx = 30;
-        gc.ipady = 36;
-        gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gc.insets = new java.awt.Insets(9, 9, 2, 0);
-        add(emptyButton1, gc);
+        //Next col
         
-        gc.gridx = 1;
+        oneButton.setText("1");
+        oneButton.setMargin( new Insets(0,0,0,0));
+        oneButton.setFont(new Font("Arial", Font.PLAIN, 16) );
+               
+        gc.gridx = 3;
         gc.gridy = 4;
         gc.ipadx = 30;
-        gc.ipady = 36;
+        gc.ipady = 13;
         gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gc.insets = new java.awt.Insets(9, 9, 0, 0);
-        add(emptyButton2, gc);
-        
-        gc.gridx = 1;
+        gc.insets = new java.awt.Insets(-24, 9, 0, 0);
+        add(oneButton, gc);
+
+        fourButton.setText("4");
+        fourButton.setMargin( new Insets(0,0,0,0));
+        fourButton.setFont(new Font("Arial", Font.PLAIN, 16) );
+               
+        gc.gridx = 3;
         gc.gridy = 3;
         gc.ipadx = 30;
-        gc.ipady = 36;
+        gc.ipady = 13;
         gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gc.insets = new java.awt.Insets(9, 9, 0, 0);
-        add(emptyButton3, gc);
-        
-        gc.gridx = 1;
+        gc.insets = new java.awt.Insets(-16, 9, 0, 0);
+        add(fourButton, gc);
+       		
+       		
+        sevenButton.setText("7");
+        sevenButton.setMargin( new Insets(0,0,0,0));
+        sevenButton.setFont(new Font("Arial", Font.PLAIN, 16) );
+               
+        gc.gridx = 3;
         gc.gridy = 2;
         gc.ipadx = 30;
-        gc.ipady = 36;
+        gc.ipady = 13;
         gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gc.insets = new java.awt.Insets(9, 9, 0, 0);
-        add(emptyButton4, gc);
-        
-        gc.gridx = 1;
+        gc.insets = new java.awt.Insets(-8, 9, 0, 0);
+        add(sevenButton, gc);
+               
+        backspaceButton.setText("\u2190");
+        backspaceButton.setMargin( new Insets(0,0,0,0));
+        backspaceButton.setFont(new Font("Arial", Font.PLAIN, 16) );
+               
+        gc.gridx = 3;
         gc.gridy = 1;
-        gc.ipadx = 30;
-        gc.ipady = 36;
+        gc.ipadx = 23;
+        gc.ipady = 13;
         gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gc.insets = new java.awt.Insets(9, 9, 0, 0);
-        add(emptyButton5, gc);
-
-        modButton.setText("Mod");
-   
-       
-        gc.gridx = 1;
+        gc.insets = new java.awt.Insets(0, 9, 0, 0);
+        add(backspaceButton, gc);
+       		
+        mcButton.setText("MC");
+        mcButton.setMargin( new Insets(0,0,0,0));
+        mcButton.setFont(new Font("Arial", Font.PLAIN, 16) );
+               
+        gc.gridx = 3;
         gc.gridy = 0;
-        gc.ipadx = 1;
-        gc.ipady = 16;
+        gc.ipadx = 14;
+        gc.ipady = 13;
         gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gc.insets = new java.awt.Insets(2, 9, 0, 0);
-        add(modButton, gc);
+        add(mcButton, gc);
         
-
-   
-       		
-       		
-               oneButton.setText("1");
-               
-               gc.gridx = 3;
-               gc.gridy = 4;
-               gc.ipadx = 22;
-               gc.ipady = 16;
-               gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
-               gc.insets = new java.awt.Insets(9, 9, 0, 0);
-               add(oneButton, gc);
-
-       		 fourButton.setText("4");
-               
-               gc.gridx = 3;
-               gc.gridy = 3;
-               gc.ipadx = 22;
-               gc.ipady = 16;
-               gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
-               gc.insets = new java.awt.Insets(9, 9, 0, 0);
-               add(fourButton, gc);
-       		
-       		
-               sevenButton.setText("7");
-               
-               gc.gridx = 3;
-               gc.gridy = 2;
-               gc.ipadx = 22;
-               gc.ipady = 16;
-               gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
-               gc.insets = new java.awt.Insets(9, 9, 0, 0);
-               add(sevenButton, gc);
-               
-               backspaceButton.setText("\u2190");
-               
-               gc.gridx = 3;
-               gc.gridy = 1;
-               gc.ipadx = 14;
-               gc.ipady = 16;
-               gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
-               gc.insets = new java.awt.Insets(9, 9, 0, 0);
-               add(backspaceButton, gc);
-       		
-       		  mcButton.setText("MC");
-               
-               gc.gridx = 3;
-               gc.gridy = 0;
-               gc.ipadx = 8;
-               gc.ipady = 16;
-               gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
-               gc.insets = new java.awt.Insets(2, 9, 0, 0);
-               add(mcButton, gc);
         
+//------- next col minus the zero button --------- //
              //2
-               twoButton.setText("2");
+        twoButton.setText("2");
+        twoButton.setMargin( new Insets(0,0,0,0));
+        twoButton.setFont(new Font("Arial", Font.PLAIN, 16) );
                        
-                       gc.gridx = 4;
-                       gc.gridy = 4;
-                       gc.ipadx = 22;
-                       gc.ipady = 16;
-                       gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
-                       gc.insets = new java.awt.Insets(9, 9, 0, 0);
-                       add(twoButton, gc);
+        gc.gridx = 4;
+        gc.gridy = 4;
+        gc.ipadx = 30;
+        gc.ipady = 13;
+        gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gc.insets = new java.awt.Insets(-24, 9, 0, 0);
+        add(twoButton, gc);
 
                //5
 
-                fiveButton.setText("5");
-                       fiveButton.setToolTipText("");
-                       
-                       gc.gridx = 4;
-                       gc.gridy = 3;
-                       gc.ipadx = 22;
-                       gc.ipady = 16;
-                       gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
-                       gc.insets = new java.awt.Insets(9, 9, 0, 0);
-                       add(fiveButton, gc);
+        fiveButton.setText("5");
+        fiveButton.setMargin( new Insets(0,0,0,0));
+        fiveButton.setFont(new Font("Arial", Font.PLAIN, 16) );
+ 
+        gc.gridx = 4;
+        gc.gridy = 3;
+        gc.ipadx = 30;
+        gc.ipady = 13;
+        gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gc.insets = new java.awt.Insets(-16, 9, 0, 0);
+        add(fiveButton, gc);
 
                //8
 
 
-                eightButton.setText("8");
-                       eightButton.setToolTipText("");
-                       
-                       gc.gridx = 4;
-                       gc.gridy = 2;
-                       gc.ipadx = 22;
-                       gc.ipady = 16;
-                       gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
-                       gc.insets = new java.awt.Insets(9, 9, 0, 0);
-                       add(eightButton, gc);
+        eightButton.setText("8");
+        eightButton.setMargin( new Insets(0,0,0,0));
+        eightButton.setFont(new Font("Arial", Font.PLAIN, 16) );
+ 
+        gc.gridx = 4;
+        gc.gridy = 2;
+        gc.ipadx = 30;
+        gc.ipady = 13;
+        gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gc.insets = new java.awt.Insets(-8, 9, 0, 0);
+        add(eightButton, gc);
 
 
                //ce
 
 
-                       ceButton.setText("CE");
-                       gc.gridx = 4;
-                       gc.gridy = 1;
-                       gc.ipadx = 12;
-                       gc.ipady = 16;
-                       gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
-                       gc.insets = new java.awt.Insets(9, 9, 0, 0);
-                       add(ceButton, gc);
+        ceButton.setText("CE");
+        ceButton.setMargin( new Insets(0,0,0,0));
+        ceButton.setFont(new Font("Arial", Font.PLAIN, 16) );
+        
+        gc.gridx = 4;
+        gc.gridy = 1;
+        gc.ipadx = 16;
+        gc.ipady = 13;
+        gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gc.insets = new java.awt.Insets(0, 9, 0, 0);
+        add(ceButton, gc);
                //mr
 
-                mrButton.setText("MR");
+        mrButton.setText("MR");
+        mrButton.setMargin( new Insets(0,0,0,0));
+        mrButton.setFont(new Font("Arial", Font.PLAIN, 16) );
+
+        gc.gridx = 4;
+        gc.gridy = 0;
+        gc.ipadx = 15;
+        gc.ipady = 13;
+        gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gc.insets = new java.awt.Insets(2, 9, 0, 0);
+        add(mrButton, gc);
+
+        zeroButton.setText("0");
+        zeroButton.setMargin( new Insets(0,0,0,0));
+        zeroButton.setFont(new Font("Arial", Font.PLAIN, 16) );
+        
+        gc.gridx = 3;
+        gc.gridy = 5;
+        gc.gridwidth = 2;
+        gc.ipadx = 84;
+        gc.ipady = 13;
+        gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gc.insets = new java.awt.Insets(-32, 9, 2, 0);
+        add(zeroButton, gc);
+
+        
+        //next row
                        
-                       gc.gridx = 4;
-                       gc.gridy = 0;
-                       gc.ipadx = 12;
-                       gc.ipady = 16;
-                       gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
-                       gc.insets = new java.awt.Insets(2, 9, 0, 0);
-                       add(mrButton, gc);
+        decimalButton.setText(".");
+        decimalButton.setMargin( new Insets(0,0,0,0));
+        decimalButton.setFont(new Font("Arial", Font.PLAIN, 16) );
                        
-                       zeroButton.setText("0");
-                       
-                       gc.gridx = 3;
-                       gc.gridy = 5;
-                       gc.gridwidth = 2;
-                       gc.ipadx = 94;
-                       gc.ipady = 16;
-                       gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
-                       gc.insets = new java.awt.Insets(9, 9, 2, 0);
-                       add(zeroButton, gc);
-                       
-                       
-                       decimalButton.setText(".");
-                       
-                       gc.gridx = 5;
-                       gc.gridy = 5;
-                       gc.ipadx = 26;
-                       gc.ipady = 16;
-                       gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
-                       gc.insets = new java.awt.Insets(9, 9, 2, 0);
-                       add(decimalButton, gc);
+        gc.gridx = 5;
+        gc.gridy = 5;
+        gc.ipadx = 35;
+        gc.ipady = 13;
+        gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gc.insets = new java.awt.Insets(-32, 9, 2, 0);
+        add(decimalButton, gc);
 
 
 
@@ -396,15 +440,17 @@ public class calculatorButtonsPanel extends JPanel
 
                        //3
 
-                               threeButton.setText("3");
-                               
-                               gc.gridx = 5;
-                               gc.gridy = 4;
-                               gc.ipadx = 22;
-                               gc.ipady = 16;
-                               gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
-                               gc.insets = new java.awt.Insets(9, 9, 0, 0);
-                               add(threeButton, gc);
+        threeButton.setText("3");
+        threeButton.setMargin( new Insets(0,0,0,0));
+        threeButton.setFont(new Font("Arial", Font.PLAIN, 16) );
+
+        gc.gridx = 5;
+        gc.gridy = 4;
+        gc.ipadx = 30;
+        gc.ipady = 13;
+        gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gc.insets = new java.awt.Insets(-24, 9, 0, 0);
+        add(threeButton, gc);
 
 
 
@@ -414,120 +460,142 @@ public class calculatorButtonsPanel extends JPanel
 
 
 
-                               sixButton.setText("6");
-                               
-                               gc.gridx = 5;
-                               gc.gridy = 3;
-                               gc.ipadx = 22;
-                               gc.ipady = 16;
-                               gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
-                               gc.insets = new java.awt.Insets(9, 9, 0, 0);
-                               add(sixButton, gc);
+        sixButton.setText("6");
+        sixButton.setMargin( new Insets(0,0,0,0));
+        sixButton.setFont(new Font("Arial", Font.PLAIN, 16) );
+
+        gc.gridx = 5;
+        gc.gridy = 3;
+        gc.ipadx = 30;
+        gc.ipady = 13;
+        gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gc.insets = new java.awt.Insets(-16, 9, 0, 0);
+        add(sixButton, gc);
 
                        //9
 
-                               nineButton.setText("9");
-                       	gc.gridx = 5;
-                               gc.gridy = 2;
-                               gc.ipadx = 22;
-                               gc.ipady = 16;
-                               gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
-                               gc.insets = new java.awt.Insets(9, 9, 0, 0);
-                               add(nineButton, gc);
+        nineButton.setText("9");
+        nineButton.setMargin( new Insets(0,0,0,0));
+        nineButton.setFont(new Font("Arial", Font.PLAIN, 16) );
+        gc.gridx = 5;
+        gc.gridy = 2;
+        gc.ipadx = 30;
+        gc.ipady = 13;
+        gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gc.insets = new java.awt.Insets(-8, 9, 0, 0);
+        add(nineButton, gc);
 
 
                        //C
 
 
-                       	clearButton.setText("C");
-                               
-                               gc.gridx = 5;
-                               gc.gridy = 1;
-                               gc.ipadx = 22;
-                               gc.ipady = 16;
-                               gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
-                               gc.insets = new java.awt.Insets(9, 9, 0, 0);
-                               add(clearButton, gc);
+        clearButton.setText("C");
+        clearButton.setMargin( new Insets(0,0,0,0));
+        clearButton.setFont(new Font("Arial", Font.PLAIN, 16) );
+
+        gc.gridx = 5;
+        gc.gridy = 1;
+        gc.ipadx = 27;
+        gc.ipady = 13;
+        gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gc.insets = new java.awt.Insets(0, 9, 0, 0);
+        add(clearButton, gc);
 
 
                        //MS
 
-                        msButton.setText("MS");
-                               
-                               gc.gridx = 5;
-                               gc.gridy = 0;
-                               gc.ipadx = 12;
-                               gc.ipady = 16;
-                               gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
-                               gc.insets = new java.awt.Insets(2, 9, 0, 0);
-                               add(msButton, gc);
-                               
-                               addButton.setText("+");
-                               
-                               gc.gridx = 6;
-                               gc.gridy = 5;
-                               gc.ipadx = 22;
-                               gc.ipady = 16;
-                               gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
-                               gc.insets = new java.awt.Insets(9, 80, 2, 0);
-                               add(addButton, gc);
+        msButton.setText("MS");
+        msButton.setMargin( new Insets(0,0,0,0));
+        msButton.setFont(new Font("Arial", Font.PLAIN, 16) );
 
-                               subButton.setText("-");
-                               
-                               gc.gridx = 6;
-                               gc.gridy = 4;
-                               gc.ipadx = 25;
-                               gc.ipady = 16;
-                               gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
-                               gc.insets = new java.awt.Insets(9, 80, 0, 0);
-                               add(subButton, gc);
+        gc.gridx = 5;
+        gc.gridy = 0;
+        gc.ipadx = 15;
+        gc.ipady = 13;
+        gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gc.insets = new java.awt.Insets(2, 9, 0, 0);
+        add(msButton, gc);
+        
+        
+//Next row
+        addButton.setText("+");
+        addButton.setMargin( new Insets(0,0,0,0));
+        addButton.setFont(new Font("Arial", Font.PLAIN, 16) );
+
+        gc.gridx = 6;
+        gc.gridy = 5;
+        gc.ipadx = 22;
+        gc.ipady = 16;
+        gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gc.insets = new java.awt.Insets(9, 64, 2, 0);
+        add(addButton, gc);
+
+        subButton.setText("-");
+        subButton.setMargin( new Insets(0,0,0,0));
+        subButton.setFont(new Font("Arial", Font.PLAIN, 16) );
+
+        gc.gridx = 6;
+        gc.gridy = 4;
+        gc.ipadx = 25;
+        gc.ipady = 16;
+        gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gc.insets = new java.awt.Insets(9, 64, 2, 0);
+        add(subButton, gc);
                        //*
 
 
-                               multButton.setText("*");
-                               
-                               gc.gridx = 6;
-                               gc.gridy = 3;
-                               gc.ipadx = 24;
-                               gc.ipady = 16;
-                               gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
-                               gc.insets = new java.awt.Insets(9, 80, 0, 0);
-                               add(multButton, gc);
+        multButton.setText("*");
+        multButton.setMargin( new Insets(0,0,0,0));
+        multButton.setFont(new Font("Arial", Font.PLAIN, 16) );
+
+        gc.gridx = 6;
+        gc.gridy = 3;
+        gc.ipadx = 24;
+        gc.ipady = 16;
+        gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gc.insets = new java.awt.Insets(9, 64, 2, 0);
+        add(multButton, gc);
 
                        // /
 
-                               divButton.setText("/");
-                               
-                               gc.gridx = 6;
-                               gc.gridy = 2;
-                               gc.ipadx = 26;
-                               gc.ipady = 16;
-                               gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
-                               gc.insets = new java.awt.Insets(9, 80, 0, 0);
-                               add(divButton, gc);
+        divButton.setText("/");
+        divButton.setMargin( new Insets(0,0,0,0));
+        divButton.setFont(new Font("Arial", Font.PLAIN, 16) );
+
+        gc.gridx = 6;
+        gc.gridy = 2;
+        gc.ipadx = 26;
+        gc.ipady = 16;
+        gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gc.insets = new java.awt.Insets(9, 64, 2, 0);
+        add(divButton, gc);
                        // plus minus
 
-                        plusMinsuButton.setText("±");
-                               
-                               gc.gridx = 6;
-                               gc.gridy = 1;
-                               gc.ipadx = 22;
-                               gc.ipady = 16;
-                               gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
-                               gc.insets = new java.awt.Insets(9, 80, 0, 0);
-                               add(plusMinsuButton, gc);
+        plusMinsuButton.setText("±");
+        plusMinsuButton.setMargin( new Insets(0,0,0,0));
+        plusMinsuButton.setFont(new Font("Arial", Font.PLAIN, 16) );
+
+        gc.gridx = 6;
+        gc.gridy = 1;
+        gc.ipadx = 22;
+        gc.ipady = 16;
+        gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gc.insets = new java.awt.Insets(9, 64, 2, 0);
+        add(plusMinsuButton, gc);
 
                        //m+
 
-                         mPlusButton.setText("M+");
-                               
-                               gc.gridx = 6;
-                               gc.gridy = 0;
-                               gc.ipadx = 12;
-                               gc.ipady = 16;
-                               gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
-                               gc.insets = new java.awt.Insets(2, 80, 0, 0);
-                               add(mPlusButton, gc);
+        mPlusButton.setText("M+");
+        mPlusButton.setMargin( new Insets(0,0,0,0));
+        mPlusButton.setFont(new Font("Arial", Font.PLAIN, 16) );
+
+        gc.gridx = 6;
+        gc.gridy = 0;
+        gc.ipadx = 12;
+        gc.ipady = 16;
+        gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gc.insets = new java.awt.Insets(2, 64, 2, 0);
+        add(mPlusButton, gc);
                                
                                //next
                                

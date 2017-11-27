@@ -36,7 +36,7 @@ public class wordTypePanel extends JPanel
         gc.gridy = 0;
         gc.gridwidth = 3;
         gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gc.insets = new java.awt.Insets(14, 13, 0, 25);
+        gc.insets = new java.awt.Insets(10, 5, 0, 25);
         add(QwordButton, gc);
 
         DwordButton.setText("Dword");
@@ -45,7 +45,7 @@ public class wordTypePanel extends JPanel
         gc.gridy = 1;
         gc.gridwidth = 3;
         gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gc.insets = new java.awt.Insets(1, 13, 0, 0);
+        gc.insets = new java.awt.Insets(1, 5, 0, 0);
         add(DwordButton, gc);
 
         wordButton.setText("Word");
@@ -54,7 +54,7 @@ public class wordTypePanel extends JPanel
         gc.gridy = 2;
         gc.gridwidth = 2;
         gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gc.insets = new java.awt.Insets(1, 13, 0, 0);
+        gc.insets = new java.awt.Insets(1, 5, 0, 0);
         add(wordButton, gc);
 
         byteButton.setSelected(true);
@@ -63,7 +63,7 @@ public class wordTypePanel extends JPanel
         gc.gridx = 0;
         gc.gridy = 3;
         gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gc.insets = new java.awt.Insets(1, 13, 24, 0);
+        gc.insets = new java.awt.Insets(1, 5, 10, 0);
         add(byteButton, gc);
 		
 		

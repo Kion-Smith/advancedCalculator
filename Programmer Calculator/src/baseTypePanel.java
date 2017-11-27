@@ -35,7 +35,7 @@ public class baseTypePanel extends JPanel
         gc.gridy = 0;
         gc.gridwidth = 3;
         gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gc.insets = new java.awt.Insets(14, 13, 0, 40);
+        gc.insets = new java.awt.Insets(10, 5, 0, 40);
         add(hexButton, gc);
 
         decButton.setText("Dec");
@@ -44,7 +44,7 @@ public class baseTypePanel extends JPanel
         gc.gridy = 1;
         gc.gridwidth = 3;
         gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gc.insets = new java.awt.Insets(1, 13, 0, 0);
+        gc.insets = new java.awt.Insets(1, 5, 0, 0);
         add(decButton, gc);
 
         octButton.setText("Oct");
@@ -53,14 +53,14 @@ public class baseTypePanel extends JPanel
         gc.gridy = 2;
         gc.gridwidth = 2;
         gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gc.insets = new java.awt.Insets(1, 13, 0, 0);
+        gc.insets = new java.awt.Insets(1, 5, 0, 0);
         add(octButton, gc);
 
         binButton.setText("Bin");
         gc.gridx = 0;
         gc.gridy = 3;
         gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gc.insets = new java.awt.Insets(1, 13, 24, 0);
+        gc.insets = new java.awt.Insets(1, 5, 10, 0);
         add(binButton, gc);
 	}
 	
