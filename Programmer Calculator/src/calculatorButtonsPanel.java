@@ -23,37 +23,37 @@ public class calculatorButtonsPanel extends JPanel
 	public calculatorButtonsPanel()
 	{
 		//the value buttons
-		zeroButton = new JButton();
-		oneButton = new JButton();
-		twoButton = new JButton();
-		threeButton = new JButton();
-		fourButton = new JButton();
-		fiveButton =  new JButton();
-		sixButton =  new JButton();
-		sevenButton =  new JButton();
-		eightButton =  new JButton();
-		nineButton =  new JButton();
-		a_Button =  new JButton();
-		b_Button =  new JButton();
-		c_Button =  new JButton();
-		d_Button =  new JButton();
-		e_Button =  new JButton();
-		f_Button =  new JButton();
+		zeroButton = new JButton("0");
+		oneButton = new JButton("1");
+		twoButton = new JButton("2");
+		threeButton = new JButton("3");
+		fourButton = new JButton("4");
+		fiveButton =  new JButton("5");
+		sixButton =  new JButton("6");
+		sevenButton =  new JButton("7");
+		eightButton =  new JButton("8");
+		nineButton =  new JButton("9");
+		a_Button =  new JButton("A");
+		b_Button =  new JButton("B");
+		c_Button =  new JButton("C");
+		d_Button =  new JButton("D");
+		e_Button =  new JButton("E");
+		f_Button =  new JButton("F");
 		
 		//Functional buttons
-		addButton =  new JButton();
-		subButton =  new JButton();
-		multButton =  new JButton();
-		divButton =  new JButton();
-		signButton =  new JButton();
-		equalsButton =  new JButton();
-		modButton =  new JButton();
+		addButton =  new JButton("+");
+		subButton =  new JButton("-");
+		multButton =  new JButton("*");
+		divButton =  new JButton("/");
+		signButton =  new JButton("\u00B1");
+		equalsButton =  new JButton("=");
+		modButton =  new JButton("Mod");
 		
 		//Disabled Buttons
-		decimalButton =  new JButton();
-		sqrtButton =  new JButton();
-		percentButton =  new JButton();
-		recipButton =  new JButton();
+		decimalButton =  new JButton(".");
+		sqrtButton =  new JButton("\u221A");
+		percentButton =  new JButton("%");
+		recipButton =  new JButton("1/x");
 		
 		emptyButton1= new JButton();
 		emptyButton2= new JButton();
@@ -67,17 +67,15 @@ public class calculatorButtonsPanel extends JPanel
 		emptyButton10= new JButton();
 		emptyButton11= new JButton();
 		
-		ceButton= new JButton();
-		clearButton= new JButton();
-		backspaceButton= new JButton();
+		ceButton= new JButton("CE");
+		clearButton= new JButton("C");
+		backspaceButton= new JButton("\u2190");
 		
-		plusButton= new JButton();
-		plusMinsuButton= new JButton();
-		mcButton= new JButton();
-		mrButton= new JButton();
-		mMinusButton = new JButton();
-		mPlusButton = new JButton();
-		msButton = new JButton();
+		mcButton= new JButton("MC");
+		mrButton= new JButton("MR");
+		mMinusButton = new JButton("M-");
+		mPlusButton = new JButton("M+");
+		msButton = new JButton("MS");
 		
 		
 		//disable the buttons
@@ -105,7 +103,6 @@ public class calculatorButtonsPanel extends JPanel
 		msButton .setEnabled(false);
 		
 		
-		//setBorder(javax.swing.BorderFactory.createEtchedBorder());
         setLayout(new GridBagLayout());
         GridBagConstraints gc = new GridBagConstraints();
         
@@ -123,40 +120,35 @@ public class calculatorButtonsPanel extends JPanel
         gc.gridx = 0;
         gc.gridy = 1;
         gc.ipadx = 11;
-        gc.ipady = 28;
-    //    
+        gc.ipady = 28; 
         gc.insets = new Insets(0, 2, 0, 0);
         add(emptyButton7, gc);
         
         gc.gridx = 0;
         gc.gridy = 2;
         gc.ipadx = 11;
-        gc.ipady = 28;
-    //    
+        gc.ipady = 28;  
         gc.insets = new Insets(-8, 2, 0, 0);
         add(emptyButton8, gc);
         
         gc.gridx = 0;
         gc.gridy = 3;
         gc.ipadx = 11;
-        gc.ipady = 28;
-     //   
+        gc.ipady = 28;  
         gc.insets = new Insets(-16, 2, 0, 0);
         add(emptyButton9, gc);
         
         gc.gridx = 0;
         gc.gridy = 4;
         gc.ipadx = 11;
-        gc.ipady = 28;
-     //   
+        gc.ipady = 28;  
         gc.insets = new Insets(-24, 2, 0, 0);
         add(emptyButton10, gc);
         
         gc.gridx = 0;
         gc.gridy = 5;
         gc.ipadx = 11;
-        gc.ipady = 28;
-     //   
+        gc.ipady = 28;  
         gc.insets = new Insets(-32, 2, 0, 0);
         add(emptyButton11, gc);
         
@@ -165,31 +157,27 @@ public class calculatorButtonsPanel extends JPanel
         gc.gridy = 5;
         gc.ipadx = 11;
         gc.ipady = 28;
-        
         gc.insets = new Insets(-32, 9, 2, 0);
         add(emptyButton1, gc);
         
         gc.gridx = 1;
         gc.gridy = 4;
         gc.ipadx = 11;
-        gc.ipady = 28;
-        
+        gc.ipady = 28;        
         gc.insets = new Insets(-24, 9, 0, 0);
         add(emptyButton2, gc);
         
         gc.gridx = 1;
         gc.gridy = 3;
         gc.ipadx = 11;
-        gc.ipady = 28;
-        
+        gc.ipady = 28;        
         gc.insets = new Insets(-16, 9, 0, 0);
         add(emptyButton3, gc);
         
         gc.gridx = 1;
         gc.gridy = 2;
         gc.ipadx = 11;
-        gc.ipady = 28;
-        
+        gc.ipady = 28;        
         gc.insets = new Insets(-8, 9, 0, 0);
         add(emptyButton4, gc);
         
@@ -197,312 +185,233 @@ public class calculatorButtonsPanel extends JPanel
         gc.gridx = 1;
         gc.gridy = 1;
         gc.ipadx = 11;
-        gc.ipady = 28;
-        
+        gc.ipady = 28;        
         gc.insets = new Insets(0, 9, 0, 0);
         add(emptyButton5, gc);
 
-        modButton.setText("Mod");
+       
    
-        Font font = new Font("Arial", Font.PLAIN, 12);
-        modButton.setFont(font);
-        
-        modButton.setMargin(new Insets(0,0,0,0));
-        		
+        modButton.setFont(new Font("Arial", Font.PLAIN, 12));
+        modButton.setMargin(new Insets(0,0,0,0));	
         gc.gridx = 1;
         gc.gridy = 0;
         gc.ipadx = 16;
         gc.ipady = 17;
-        
         gc.insets = new Insets(2, 9, 0, 0);
         add(modButton, gc);
 
         
-        a_Button.setText("A");
         a_Button.setMargin( new Insets(0,0,0,0));
         a_Button.setFont(new Font("Arial", Font.PLAIN, 16) );
         gc.gridx = 2;
         gc.gridy = 0;
         gc.ipadx = 28;
         gc.ipady = 13;
-        
         gc.insets = new Insets(2, 9, 0, 0);
         add(a_Button, gc);
 
-        b_Button.setText("B");
+
         b_Button.setMargin( new Insets(0,0,0,0));
-        b_Button.setFont(new Font("Arial", Font.PLAIN, 16) );
-        
+        b_Button.setFont(new Font("Arial", Font.PLAIN, 16) );        
         gc.gridx = 2;
         gc.gridy = 1;
         gc.ipadx = 28;
-        gc.ipady = 13;
-        
+        gc.ipady = 13;       
         gc.insets = new Insets(0, 9, 0, 0);
         add(b_Button, gc);
 
-        c_Button.setText("C");
         c_Button.setMargin( new Insets(0,0,0,0));
-        c_Button.setFont(new Font("Arial", Font.PLAIN, 16) );
-        
+        c_Button.setFont(new Font("Arial", Font.PLAIN, 16) );        
         gc.gridx = 2;
         gc.gridy = 2;
         gc.ipadx = 28;
-        gc.ipady = 13;
-        
+        gc.ipady = 13;        
         gc.insets = new Insets(-8, 9, 0, 0);
         add(c_Button, gc);
 
-        d_Button.setText("D");
         d_Button.setMargin( new Insets(0,0,0,0));
-        d_Button.setFont(new Font("Arial", Font.PLAIN, 16) );
-        
+        d_Button.setFont(new Font("Arial", Font.PLAIN, 16) );        
         gc.gridx = 2;
         gc.gridy = 3;
         gc.ipadx = 28;
-        gc.ipady = 13;
-        
+        gc.ipady = 13;        
         gc.insets = new Insets(-16, 9, 0, 0);
         add(d_Button, gc);
 
-        e_Button.setText("E");
         e_Button.setMargin( new Insets(0,0,0,0));
-        e_Button.setFont(new Font("Arial", Font.PLAIN, 16) );
-        
+        e_Button.setFont(new Font("Arial", Font.PLAIN, 16) );        
         gc.gridx = 2;
         gc.gridy = 4;
         gc.ipadx = 28;
-        gc.ipady = 13;
-        
+        gc.ipady = 13;        
         gc.insets = new Insets(-24, 9, 0, 0);
         add(e_Button, gc);
 
-        f_Button.setText("F");
         f_Button.setMargin( new Insets(0,0,0,0));
-        f_Button.setFont(new Font("Arial", Font.PLAIN, 16) );
-        
+        f_Button.setFont(new Font("Arial", Font.PLAIN, 16) );        
         gc.gridx = 2;
         gc.gridy = 5;
         gc.ipadx = 28;
-        gc.ipady = 13;
-        
+        gc.ipady = 13;       
         gc.insets = new Insets(-32, 9, 2, 0);
         add(f_Button, gc);
         
         //Next col
         
-        oneButton.setText("1");
         oneButton.setMargin( new Insets(0,0,0,0));
-        oneButton.setFont(new Font("Arial", Font.PLAIN, 16) );
-               
+        oneButton.setFont(new Font("Arial", Font.PLAIN, 16) );               
         gc.gridx = 3;
         gc.gridy = 4;
         gc.ipadx = 30;
-        gc.ipady = 13;
-        
+        gc.ipady = 13;        
         gc.insets = new Insets(-24, 9, 0, 0);
         add(oneButton, gc);
 
-        fourButton.setText("4");
         fourButton.setMargin( new Insets(0,0,0,0));
-        fourButton.setFont(new Font("Arial", Font.PLAIN, 16) );
-               
+        fourButton.setFont(new Font("Arial", Font.PLAIN, 16) );               
         gc.gridx = 3;
         gc.gridy = 3;
         gc.ipadx = 30;
-        gc.ipady = 13;
-        
+        gc.ipady = 13;        
         gc.insets = new Insets(-16, 9, 0, 0);
         add(fourButton, gc);
        		
        		
-        sevenButton.setText("7");
         sevenButton.setMargin( new Insets(0,0,0,0));
-        sevenButton.setFont(new Font("Arial", Font.PLAIN, 16) );
-               
+        sevenButton.setFont(new Font("Arial", Font.PLAIN, 16) );       
         gc.gridx = 3;
         gc.gridy = 2;
         gc.ipadx = 30;
         gc.ipady = 13;
-        
         gc.insets = new Insets(-8, 9, 0, 0);
         add(sevenButton, gc);
                
-        backspaceButton.setText("\u2190");
         backspaceButton.setMargin( new Insets(0,0,0,0));
-        backspaceButton.setFont(new Font("Arial", Font.BOLD, 16) );
-               
+        backspaceButton.setFont(new Font("Arial", Font.BOLD, 16) );  
         gc.gridx = 3;
         gc.gridy = 1;
         gc.ipadx = 23;
-        gc.ipady = 13;
-        
+        gc.ipady = 13;      
         gc.insets = new Insets(0, 9, 0, 0);
         add(backspaceButton, gc);
        		
-        mcButton.setText("MC");
         mcButton.setMargin( new Insets(0,0,0,0));
-        mcButton.setFont(new Font("Arial", Font.PLAIN, 16) );
-               
+        mcButton.setFont(new Font("Arial", Font.PLAIN, 16) );              
         gc.gridx = 3;
         gc.gridy = 0;
         gc.ipadx = 14;
         gc.ipady = 13;
-        
-        gc.insets = new Insets(2, 9, 0, 0);
+                gc.insets = new Insets(2, 9, 0, 0);
         add(mcButton, gc);
         
         
 //------- next col minus the zero button --------- //
              //2
-        twoButton.setText("2");
         twoButton.setMargin( new Insets(0,0,0,0));
-        twoButton.setFont(new Font("Arial", Font.PLAIN, 16) );
-                       
+        twoButton.setFont(new Font("Arial", Font.PLAIN, 16) );                       
         gc.gridx = 4;
         gc.gridy = 4;
         gc.ipadx = 30;
-        gc.ipady = 13;
-        
+        gc.ipady = 13;        
         gc.insets = new Insets(-24, 9, 0, 0);
         add(twoButton, gc);
 
                //5
 
-        fiveButton.setText("5");
         fiveButton.setMargin( new Insets(0,0,0,0));
-        fiveButton.setFont(new Font("Arial", Font.PLAIN, 16) );
- 
+        fiveButton.setFont(new Font("Arial", Font.PLAIN, 16) ); 
         gc.gridx = 4;
         gc.gridy = 3;
         gc.ipadx = 30;
-        gc.ipady = 13;
-        
+        gc.ipady = 13;        
         gc.insets = new Insets(-16, 9, 0, 0);
         add(fiveButton, gc);
 
                //8
 
 
-        eightButton.setText("8");
         eightButton.setMargin( new Insets(0,0,0,0));
-        eightButton.setFont(new Font("Arial", Font.PLAIN, 16) );
- 
+        eightButton.setFont(new Font("Arial", Font.PLAIN, 16) ); 
         gc.gridx = 4;
         gc.gridy = 2;
         gc.ipadx = 30;
-        gc.ipady = 13;
-        
+        gc.ipady = 13;        
         gc.insets = new Insets(-8, 9, 0, 0);
         add(eightButton, gc);
 
 
                //ce
-
-
-        ceButton.setText("CE");
         ceButton.setMargin( new Insets(0,0,0,0));
-        ceButton.setFont(new Font("Arial", Font.PLAIN, 16) );
-        
+        ceButton.setFont(new Font("Arial", Font.PLAIN, 16) );    
         gc.gridx = 4;
         gc.gridy = 1;
         gc.ipadx = 16;
         gc.ipady = 13;
-        
         gc.insets = new Insets(0, 9, 0, 0);
         add(ceButton, gc);
                //mr
-
-        mrButton.setText("MR");
         mrButton.setMargin( new Insets(0,0,0,0));
         mrButton.setFont(new Font("Arial", Font.PLAIN, 16) );
-
         gc.gridx = 4;
         gc.gridy = 0;
         gc.ipadx = 15;
         gc.ipady = 13;
-        
         gc.insets = new Insets(2, 9, 0, 0);
         add(mrButton, gc);
-
-        zeroButton.setText("0");
-        zeroButton.setMargin( new Insets(0,0,0,0));
-        zeroButton.setFont(new Font("Arial", Font.PLAIN, 16) );
         
+        zeroButton.setMargin( new Insets(0,0,0,0));
+        zeroButton.setFont(new Font("Arial", Font.PLAIN, 16) ); 
         gc.gridx = 3;
         gc.gridy = 5;
         gc.gridwidth = 2;
         gc.ipadx = 84;
         gc.ipady = 13;
-        
         gc.insets = new Insets(-32, 9, 2, 0);
         add(zeroButton, gc);
 
         
         //next row
                        
-        decimalButton.setText(".");
         decimalButton.setMargin( new Insets(0,0,0,0));
-        decimalButton.setFont(new Font("Arial", Font.PLAIN, 16) );
-                       
+        decimalButton.setFont(new Font("Arial", Font.PLAIN, 16) );                       
         gc.gridx = 5;
         gc.gridy = 5;
         gc.ipadx = 35;
-        gc.ipady = 13;
-        
+        gc.ipady = 13;        
         gc.insets = new Insets(-32, 9, 2, 0);
         add(decimalButton, gc);
 
-
-
-
-
-
-
                        //3
 
-        threeButton.setText("3");
         threeButton.setMargin( new Insets(0,0,0,0));
         threeButton.setFont(new Font("Arial", Font.PLAIN, 16) );
-
         gc.gridx = 5;
         gc.gridy = 4;
         gc.ipadx = 30;
-        gc.ipady = 13;
-        
+        gc.ipady = 13;      
         gc.insets = new Insets(-24, 9, 0, 0);
         add(threeButton, gc);
 
 
-
-
-
                        //6
 
-
-
-        sixButton.setText("6");
         sixButton.setMargin( new Insets(0,0,0,0));
         sixButton.setFont(new Font("Arial", Font.PLAIN, 16) );
-
         gc.gridx = 5;
         gc.gridy = 3;
         gc.ipadx = 30;
-        gc.ipady = 13;
-        
+        gc.ipady = 13;        
         gc.insets = new Insets(-16, 9, 0, 0);
         add(sixButton, gc);
 
                        //9
 
-        nineButton.setText("9");
         nineButton.setMargin( new Insets(0,0,0,0));
         nineButton.setFont(new Font("Arial", Font.PLAIN, 16) );
         gc.gridx = 5;
         gc.gridy = 2;
         gc.ipadx = 30;
-        gc.ipady = 13;
-        
+        gc.ipady = 13;        
         gc.insets = new Insets(-8, 9, 0, 0);
         add(nineButton, gc);
 
@@ -510,153 +419,119 @@ public class calculatorButtonsPanel extends JPanel
                        //C
 
 
-        clearButton.setText("C");
         clearButton.setMargin( new Insets(0,0,0,0));
         clearButton.setFont(new Font("Arial", Font.PLAIN, 16) );
-
         gc.gridx = 5;
         gc.gridy = 1;
         gc.ipadx = 27;
-        gc.ipady = 13;
-        
+        gc.ipady = 13;        
         gc.insets = new Insets(0, 9, 0, 0);
         add(clearButton, gc);
 
 
                        //MS
 
-        msButton.setText("MS");
         msButton.setMargin( new Insets(0,0,0,0));
         msButton.setFont(new Font("Arial", Font.PLAIN, 16) );
-
         gc.gridx = 5;
         gc.gridy = 0;
         gc.ipadx = 15;
-        gc.ipady = 13;
-        
+        gc.ipady = 13;        
         gc.insets = new Insets(2, 9, 0, 0);
         add(msButton, gc);
         
-        
-//Next row
-        addButton.setText("+");
+
         addButton.setMargin( new Insets(0,0,0,0));
         addButton.setFont(new Font("Arial", Font.PLAIN, 16) );
-
         gc.gridx = 6;
         gc.gridy = 5;
         gc.ipadx = 30;
-        gc.ipady = 13;
-        
+        gc.ipady = 13;        
         gc.insets = new Insets(-32, 64, 50, 0);
         add(addButton, gc);
 
-        subButton.setText("-");
+
         subButton.setMargin( new Insets(0,0,0,0));
         subButton.setFont(new Font("Arial", Font.PLAIN, 16) );
-
         gc.gridx = 6;
         gc.gridy = 4;
         gc.ipadx = 34;
-        gc.ipady = 13;
-        
+        gc.ipady = 13;   
         gc.insets = new Insets(-24, 64, 40, 0);
         add(subButton, gc);
                        //*
 
 
-        multButton.setText("*");
         multButton.setMargin( new Insets(0,0,0,0));
         multButton.setFont(new Font("Arial", Font.PLAIN, 16) );
-
         gc.gridx = 6;
         gc.gridy = 3;
         gc.ipadx = 33;
-        gc.ipady = 13;
-        
+        gc.ipady = 13;        
         gc.insets = new Insets(-16, 64, 30, 0);
         add(multButton, gc);
 
                        // /
 
-        divButton.setText("/");
         divButton.setMargin( new Insets(0,0,0,0));
         divButton.setFont(new Font("Arial", Font.PLAIN, 16) );
-
         gc.gridx = 6;
         gc.gridy = 2;
         gc.ipadx = 35;
-        gc.ipady = 13;
-        
+        gc.ipady = 13;        
         gc.insets = new Insets(-8, 64, 25, 0);
         add(divButton, gc);
                        // plus minus
 
-        plusMinsuButton.setText("±");
-        plusMinsuButton.setMargin( new Insets(0,0,0,0));
-        plusMinsuButton.setFont(new Font("Arial", Font.PLAIN, 16) );
-
+        signButton.setMargin( new Insets(0,0,0,0));
+        signButton.setFont(new Font("Arial", Font.PLAIN, 16) );
         gc.gridx = 6;
         gc.gridy = 1;
         gc.ipadx = 30;
-        gc.ipady = 13;
-        
+        gc.ipady = 13;        
         gc.insets = new Insets(0, 64, 15, 0);
-        add(plusMinsuButton, gc);
+        add(signButton, gc);
 
                        //m+
 
-        mPlusButton.setText("M+");
+        
         mPlusButton.setMargin( new Insets(0,0,0,0));
         mPlusButton.setFont(new Font("Arial", Font.PLAIN, 16) );
-
         gc.gridx = 6;
         gc.gridy = 0;
         gc.ipadx = 17;
-        gc.ipady = 13;
-        
+        gc.ipady = 13;        
         gc.insets = new Insets(2, 64, 8, 0);
         add(mPlusButton, gc);
                                
 //next
 
-        equalsButton.setText("=");
         equalsButton.setMargin( new Insets(0,0,0,0));
         equalsButton.setFont(new Font("Arial", Font.PLAIN, 16) );
-
         gc.gridx = 7;
         gc.gridy = 4;
         gc.gridheight = 2;
         gc.ipadx = 30;
-        gc.ipady = 59;
-        
+        gc.ipady = 59;    
         gc.insets = new Insets(-24, 64, 0, 2);
         add(equalsButton, gc);
 
-        recipButton.setText("1/x");
         recipButton.setMargin( new Insets(0,0,0,0));
         recipButton.setFont(new Font("Arial", Font.PLAIN, 16) );
-
-
         gc.gridx = 7;
         gc.gridy = 3;
         gc.ipadx = 19;
-        gc.ipady = 13;
-        
+        gc.ipady = 13;        
         gc.insets = new Insets(-15, 64, 0, 2);
         add(recipButton, gc);
                        //%
 
-        percentButton.setText("%");
         percentButton.setMargin( new Insets(0,0,0,0));
         percentButton.setFont(new Font("Arial", Font.PLAIN, 16) );
-
-
 		gc.gridx = 7;
 		gc.gridy = 2;
 		gc.ipadx = 25;
-		gc.ipady = 16;
-		
+		gc.ipady = 16;		
 		gc.insets = new Insets(-7, 64, 0, 2);
 		add(percentButton, gc);
 
@@ -664,31 +539,24 @@ public class calculatorButtonsPanel extends JPanel
 
                        //sqrt
 
-		sqrtButton.setText("\u221A");
 		sqrtButton.setMargin( new Insets(0,0,0,0));
 		sqrtButton.setFont(new Font("Arial", Font.PLAIN, 16) );
-		                          
-		
 		gc.gridx = 7;
 		gc.gridy = 1;
 		gc.ipadx = 30;
 		gc.ipady = 14;
-		
 		gc.insets = new Insets(1, 64, 0, 2);
 		add(sqrtButton, gc);
 
 
                        //m-
 
-		mMinusButton.setText("M-");
 		mMinusButton.setMargin( new Insets(0,0,0,0));
 		mMinusButton.setFont(new Font("Arial", Font.PLAIN, 16) );
-
 		gc.gridx = 7;
 		gc.gridy = 0;
         gc.ipadx = 21;
         gc.ipady = 13;
-		
 		gc.insets = new Insets(2, 64, 0, 2);
 		add(mMinusButton, gc);
  
