@@ -1,6 +1,8 @@
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Insets;
 
+import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
@@ -24,43 +26,36 @@ public class baseTypePanel extends JPanel
 		baseType.add(octButton);
 		baseType.add(binButton);
 		
-		setBorder(javax.swing.BorderFactory.createEtchedBorder());
+		decButton.setSelected(true);
+		
+		setBorder(BorderFactory.createEtchedBorder());
 		setLayout(new GridBagLayout());
 		GridBagConstraints gc = new GridBagConstraints();
 		
 		
-
-        hexButton.setText("Hex");
+        gc.anchor = GridBagConstraints.FIRST_LINE_START;
+       
         gc.gridx = 0;
         gc.gridy = 0;
         gc.gridwidth = 3;
-        gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gc.insets = new java.awt.Insets(10, 5, 0, 40);
+        gc.insets = new Insets(10, 5, 0, 40);
         add(hexButton, gc);
 
-        decButton.setText("Dec");
-       // gc = new java.awt.GridBagConstraints();
         gc.gridx = 0;
         gc.gridy = 1;
         gc.gridwidth = 3;
-        gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gc.insets = new java.awt.Insets(1, 5, 0, 0);
+        gc.insets = new Insets(1, 5, 0, 0);
         add(decButton, gc);
 
-        octButton.setText("Oct");
-       // gc = new java.awt.GridBagConstraints();
         gc.gridx = 0;
         gc.gridy = 2;
         gc.gridwidth = 2;
-        gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gc.insets = new java.awt.Insets(1, 5, 0, 0);
+        gc.insets = new Insets(1, 5, 0, 0);
         add(octButton, gc);
-
-        binButton.setText("Bin");
+        
         gc.gridx = 0;
         gc.gridy = 3;
-        gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gc.insets = new java.awt.Insets(1, 5, 15, 0);
+        gc.insets = new Insets(1, 5, 15, 0);
         add(binButton, gc);
 	}
 	

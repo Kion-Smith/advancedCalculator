@@ -1,6 +1,8 @@
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Insets;
 
+import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
@@ -25,45 +27,36 @@ public class wordTypePanel extends JPanel
 		wordType.add(byteButton);
 		
 		setLayout(new GridBagLayout());
-		setBorder(javax.swing.BorderFactory.createEtchedBorder());
+		setBorder(BorderFactory.createEtchedBorder());
 		GridBagConstraints gc = new GridBagConstraints();
 		
+		QwordButton.setSelected(true);
 
-
-        QwordButton.setText("Qword");
-     //   gc = new java.awt.GridBagConstraints();
+	    gc.anchor = GridBagConstraints.FIRST_LINE_START;
+	    
         gc.gridx = 0;
         gc.gridy = 0;
         gc.gridwidth = 3;
-        gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gc.insets = new java.awt.Insets(10, 5, 0, 25);
+        gc.insets = new Insets(10, 5, 0, 25);
         add(QwordButton, gc);
 
-        DwordButton.setText("Dword");
-    //    gc = new java.awt.GridBagConstraints();
+
         gc.gridx = 0;
         gc.gridy = 1;
         gc.gridwidth = 3;
-        gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gc.insets = new java.awt.Insets(1, 5, 0, 0);
+        gc.insets = new Insets(1, 5, 0, 0);
         add(DwordButton, gc);
 
-        wordButton.setText("Word");
-      //  gc = new java.awt.GridBagConstraints();
         gc.gridx = 0;
         gc.gridy = 2;
         gc.gridwidth = 2;
-        gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gc.insets = new java.awt.Insets(1, 5, 0, 0);
+        gc.insets = new Insets(1, 5, 0, 0);
         add(wordButton, gc);
 
-        byteButton.setSelected(true);
-        byteButton.setText("Byte");
-    //    gc = new java.awt.GridBagConstraints();
+
         gc.gridx = 0;
         gc.gridy = 3;
-        gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gc.insets = new java.awt.Insets(1, 5, 15, 0);
+        gc.insets = new Insets(1, 5, 15, 0);
         add(byteButton, gc);
 		
 		
