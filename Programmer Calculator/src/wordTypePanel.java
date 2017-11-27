@@ -63,7 +63,7 @@ public class wordTypePanel extends JPanel
         gc.gridx = 0;
         gc.gridy = 3;
         gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gc.insets = new java.awt.Insets(1, 5, 10, 0);
+        gc.insets = new java.awt.Insets(1, 5, 15, 0);
         add(byteButton, gc);
 		
 		

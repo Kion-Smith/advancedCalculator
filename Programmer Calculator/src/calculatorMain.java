@@ -6,7 +6,7 @@ public class calculatorMain
 	{
 		Calculator c = new Calculator();
 		c.setTitle("Calculator");
-		c.setSize(750,650);//620,580
+		c.setSize(600,580);//620,580
 		c.setVisible(true);
 		//c.setResizable(false);///set to false later
 		c.setLocationRelativeTo(null);

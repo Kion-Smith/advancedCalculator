@@ -55,8 +55,9 @@ public class bitsPanel extends JPanel
 		gc.gridx = 0;
 		gc.gridy = 0;
 	//	gc.fill = java.awt.GridBagConstraints.BOTH;
-		gc.ipadx = 700;
-		gc.ipady = 100;
+		//gc.ipadx = 345;
+		gc.ipadx = 540;
+		gc.ipady = 80;
 		gc.anchor = java.awt.GridBagConstraints.NORTHWEST;
 		gc.weightx = 1.0;
 		gc.weighty = 1.0;

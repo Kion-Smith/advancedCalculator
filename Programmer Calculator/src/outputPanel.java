@@ -26,7 +26,7 @@ public class outputPanel extends JPanel
 		
 		gc.gridx = 0;
 		gc.gridy = 0;
-		gc.ipadx = 700;
+		gc.ipadx = 540;//700
 		gc.ipady =70;
 		//gc.fill = java.awt.GridBagConstraints.BOTH;
 	//	gc.ipadx = 647;
