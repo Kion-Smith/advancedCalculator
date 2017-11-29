@@ -4,6 +4,7 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -127,6 +128,9 @@ public class Calculator extends JFrame implements ActionListener
 
 		int num1;
 		String sign = "";
+		String inputs="";
+
+
 		
 		if(btp.getHexButton().isSelected())
 		{
@@ -148,6 +152,25 @@ public class Calculator extends JFrame implements ActionListener
 			cbp.f_Button.setEnabled(false);
 			
 		}
+		
+		Component[] calcButtonsComp = cbp.getComponents();
+		for(int i =0;i<calcButtonsComp.length;i++)
+		{
+			if(calcButtonsComp[i] instanceof JButton)
+			{
+				JButton temp = (JButton)calcButtonsComp[i];
+				
+				if(temp == e.getSource())
+				{
+					op.getOutputTextArea().append(temp.getText());
+					inputs = op.getOutputTextArea().getText();
+				}
+			}
+			
+			
+		}
+		
+		
 		
 		
 		

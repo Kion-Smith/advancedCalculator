@@ -9,25 +9,29 @@ import javax.swing.JTextArea;
 public class outputPanel extends JPanel
 {
 	public JTextArea outputTextArea;
+	public JScrollPane outputScrollPane;
 
 	public outputPanel()
 	{
 		outputTextArea = new JTextArea(5,20);
+		outputScrollPane = new JScrollPane(outputTextArea);
+		
 		outputTextArea.setEditable(false);
 		
+		outputTextArea.setLineWrap(false);
+
 		setLayout(new GridBagLayout());
-		setBorder(BorderFactory.createEtchedBorder());
+	//	setBorder(BorderFactory.createEtchedBorder());
 		GridBagConstraints gc = new GridBagConstraints();
 		
+	
 		
 		
 		gc.gridx = 0;
 		gc.gridy = 0;
-		gc.ipadx = 540;//700
+		gc.ipadx = 520;//700
 		gc.ipady =70;
-		gc.weightx = 1.0;
-		gc.weighty = 1.0;
-		add(outputTextArea,gc);
+		add(outputScrollPane,gc);
 	}
 	
 	public JTextArea getOutputTextArea() 
