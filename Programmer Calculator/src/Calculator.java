@@ -208,26 +208,58 @@ public class Calculator extends JFrame implements ActionListener
 						num1 = Integer.parseInt(s.peek());
 						s.pop();
 						
-						if(sign.equals("+"))
-						{
-							s.push(num1+num2+"");
-						}
-						else if(sign.equals("-"))
-						{
-							s.push(num1-num2+"");
-						}
-						else if(sign.equals("*"))
-						{
-							s.push(num1*num2+"");
-						}
-						else if(sign.equals("/"))
-						{
-							s.push(num1/num2+"");
-						}
+						s.push( doCalculation(num1,num2,sign)+"" );
+//
 					}
+					/*
+					else if( isOperator(s.peek()) && isNum(temp.getText()))
+					{
+						int loc = 0;
+						String[] tempString = new String[3];
+						s.push(temp.getText());
+						while(!s.isEmpty())
+						{
+							if(isNum(s.peek()))
+							{
+								tempString[loc] =s.peek()+"";
+								s.pop();
+								loc++;
+								
+							}
+							else if(isOperator(s.peek()))
+							{
+								tempString[loc] = s.peek();
+								s.pop();
+								loc++;
+							}
+						}
+						for(int x =0;x<tempString.length;x++)
+						{
+							System.out.println(tempString[x]);
+						}
+						//num1 = Integer.parseInt(tempString[1]);
+						//sign =tempString[0];
+						//num2 = Integer.parseInt(tempString[2]);
+						//s.push(doCalculation(num1,num2,sign)+"" );
+						//s.push(temp.getText());
+					}*/
 					//need one for ic just doing costant operations
 					else
 					{
+						int loc =0;
+						String[] tempString = new String[3];
+						Stack<String> tempStack = new Stack<String>();
+						tempStack = (Stack<String>) s.clone();
+						while(!s.isEmpty())
+						{
+						
+							tempString[loc] =tempStack.peek();
+			
+							if(loc <=4)
+							{
+								
+							}
+						}
 						s.push(temp.getText());
 					}
 					
@@ -246,12 +278,13 @@ public class Calculator extends JFrame implements ActionListener
 	
 	public boolean isOperator(String value)
 	{
-		if(value.equals("/")||value.equals("*")||value.equals("+")||value.equals("-"))
+		if(value.equals("/")||value.equals("*")||value.equals("+")||value.equals("-")||value.equals("Mod"))
 		{
 			return true;
 		}
 		return false;
 	}
+	
 	public boolean isNum(String value) //change to is value
 	{
 		try 
@@ -264,6 +297,35 @@ public class Calculator extends JFrame implements ActionListener
 			return false;
 		}
 		
+	}
+	
+	public int doCalculation(int num1,int num2,String sign)
+	{
+		int answer =0;
+		
+		
+		if(sign.equals("+"))
+		{
+			answer =num1+num2;
+		}
+		else if(sign.equals("-"))
+		{
+			answer =num1-num2;
+		}
+		else if(sign.equals("*"))
+		{
+			answer =num1*num2;
+		}
+		else if(sign.equals("/"))
+		{
+			answer =num1/num2;
+		}
+		else if(sign.equals("Mod"))
+		{
+			answer= num1%num2;
+		}
+		
+		return answer;
 	}
 
 	//getters
