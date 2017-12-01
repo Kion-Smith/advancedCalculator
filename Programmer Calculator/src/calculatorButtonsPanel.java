@@ -3,6 +3,7 @@ import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -16,9 +17,6 @@ public class calculatorButtonsPanel extends JPanel
 			emptyButton1,emptyButton2,emptyButton3,emptyButton4,emptyButton5,emptyButton6,emptyButton7,emptyButton8,emptyButton9,emptyButton10,emptyButton11
 			,ceButton,mcButton,mrButton,plusButton,backspaceButton
 			,plusMinsuButton,mMinusButton,mPlusButton,msButton,clearButton; //all disable buttons
-	
-	
-
 
 	public calculatorButtonsPanel()
 	{
@@ -68,7 +66,7 @@ public class calculatorButtonsPanel extends JPanel
 		emptyButton11= new JButton();
 		
 		ceButton= new JButton("CE");
-		clearButton= new JButton("C");
+		clearButton= new JButton("C ");
 		backspaceButton= new JButton("\u2190");
 		
 		mcButton= new JButton("MC");
@@ -429,7 +427,7 @@ public class calculatorButtonsPanel extends JPanel
         clearButton.setFont(new Font("Arial", Font.PLAIN, 16) );
         gc.gridx = 5;
         gc.gridy = 1;
-        gc.ipadx = 27;
+        gc.ipadx = 24;
         gc.ipady = 13;        
         gc.insets = new Insets(0, 9, 0, 0);
         add(clearButton, gc);
@@ -570,6 +568,8 @@ public class calculatorButtonsPanel extends JPanel
 	
 	
 	//Getters
+	
+
 	public JButton getZeroButton() 
 	{
 		return zeroButton;

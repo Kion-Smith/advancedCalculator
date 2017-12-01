@@ -5,6 +5,7 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Stack;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -23,6 +24,7 @@ public class Calculator extends JFrame implements ActionListener
 	
 	JMenuBar menu;
 	JMenu viewMenu,editMenu,helpMenu;
+	Stack<String> s;
 	
 	
 	public Calculator()
@@ -117,7 +119,7 @@ public class Calculator extends JFrame implements ActionListener
 		
 		
 		
-		
+		s = new Stack<String>();
 		
 		
 	}
@@ -126,7 +128,8 @@ public class Calculator extends JFrame implements ActionListener
 	public void actionPerformed(ActionEvent e) 
 	{
 
-		int num1;
+		int num1 =0;
+		int num2 =0;
 		String sign = "";
 		String inputs="";
 
@@ -162,17 +165,104 @@ public class Calculator extends JFrame implements ActionListener
 				
 				if(temp == e.getSource())
 				{
-					op.getOutputTextArea().append(temp.getText());
-					inputs = op.getOutputTextArea().getText();
+					if(s.isEmpty()&&!isOperator(temp.getText()))
+					{
+						s.push(temp.getText());
+					}
+					else if(temp.getText().equals("C ") && !s.isEmpty())
+					{
+						while(!s.isEmpty())
+						{
+							s.pop();
+						}
+					}
+					else if((temp.getText().equals("CE") ||temp.getText().equals("\u2190")) && !s.isEmpty())
+					{
+						if(isNum(s.peek()))
+						{
+							s.pop();
+						}
+					}
+					else if(isOperator(s.peek()) && isOperator(temp.getText()))
+					{
+						s.pop();
+						s.push(temp.getText());
+					}
+					else if(isNum(s.peek()) && isNum(temp.getText()) )
+					{
+						int num = Integer.parseInt(s.peek())*10;
+						num += Integer.parseInt(temp.getText());
+						s.pop();
+						s.push(num+"");
+					
+					}
+
+					else if(temp.getText().equals("="))
+					{
+						num2 = Integer.parseInt(s.peek());
+						s.pop();
+						
+						sign = s.peek();
+						s.pop();
+						
+						num1 = Integer.parseInt(s.peek());
+						s.pop();
+						
+						if(sign.equals("+"))
+						{
+							s.push(num1+num2+"");
+						}
+						else if(sign.equals("-"))
+						{
+							s.push(num1-num2+"");
+						}
+						else if(sign.equals("*"))
+						{
+							s.push(num1*num2+"");
+						}
+						else if(sign.equals("/"))
+						{
+							s.push(num1/num2+"");
+						}
+					}
+					//need one for ic just doing costant operations
+					else
+					{
+						s.push(temp.getText());
+					}
+					
+					
 				}
 			}
 			
 			
 		}
 		
+		System.out.println( s.toString());
 		
 		
 		
+	}
+	
+	public boolean isOperator(String value)
+	{
+		if(value.equals("/")||value.equals("*")||value.equals("+")||value.equals("-"))
+		{
+			return true;
+		}
+		return false;
+	}
+	public boolean isNum(String value) //change to is value
+	{
+		try 
+		{
+			Integer.parseInt(value);
+			return true;
+		}
+		catch(Exception e)
+		{
+			return false;
+		}
 		
 	}
 
