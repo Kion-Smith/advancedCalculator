@@ -18,9 +18,12 @@ public class calculatorButtonsPanel extends JPanel
 			,ceButton,mcButton,mrButton,plusButton,backspaceButton
 			,plusMinsuButton,mMinusButton,mPlusButton,msButton,clearButton; //all disable buttons
 
+	ArrayList<JButton> valueButtons = new ArrayList<JButton>();
+	
 	public calculatorButtonsPanel()
 	{
 		//the value buttons
+	
 		zeroButton = new JButton("0");
 		oneButton = new JButton("1");
 		twoButton = new JButton("2");
@@ -74,6 +77,24 @@ public class calculatorButtonsPanel extends JPanel
 		mMinusButton = new JButton("M-");
 		mPlusButton = new JButton("M+");
 		msButton = new JButton("MS");
+		
+		
+		valueButtons.add(zeroButton);
+		valueButtons.add(oneButton);
+		valueButtons.add(twoButton);
+		valueButtons.add(threeButton); 
+		valueButtons.add(fourButton);
+		valueButtons.add(fiveButton); 
+		valueButtons.add(sixButton); 
+		valueButtons.add(sevenButton); 
+		valueButtons.add(eightButton);
+		valueButtons.add(nineButton);
+		valueButtons.add(a_Button);
+		valueButtons.add(b_Button); 
+		valueButtons.add(c_Button); 
+		valueButtons.add(d_Button);
+		valueButtons.add(e_Button); 
+		valueButtons.add(f_Button); 
 		
 		
 		//disable the buttons
@@ -569,7 +590,10 @@ public class calculatorButtonsPanel extends JPanel
 	
 	//Getters
 	
-
+	public ArrayList<JButton> getvalueButtons()
+	{
+		return valueButtons;
+	}
 	public JButton getZeroButton() 
 	{
 		return zeroButton;

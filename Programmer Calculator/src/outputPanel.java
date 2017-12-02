@@ -14,8 +14,10 @@ public class outputPanel extends JPanel
 	public outputPanel()
 	{
 		outputTextArea = new JTextArea(5,20);
-		outputScrollPane = new JScrollPane(outputTextArea);
+		outputScrollPane = new JScrollPane(outputTextArea,JScrollPane.VERTICAL_SCROLLBAR_NEVER, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		//outputScrollPane = new JScrollPane(outputTextArea);
 		
+		//outputScrollPane.
 		outputTextArea.setEditable(false);
 		
 		outputTextArea.setLineWrap(false);
@@ -29,8 +31,8 @@ public class outputPanel extends JPanel
 		
 		gc.gridx = 0;
 		gc.gridy = 0;
-		gc.ipadx = 520;//700
-		gc.ipady =70;
+		gc.ipadx = 537;//700
+		gc.ipady =75;
 		add(outputScrollPane,gc);
 	}
 	

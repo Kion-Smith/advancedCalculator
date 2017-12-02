@@ -1,4 +1,6 @@
 import java.awt.Component;
+import java.awt.ComponentOrientation;
+import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -25,7 +27,7 @@ public class Calculator extends JFrame implements ActionListener
 	JMenuBar menu;
 	JMenu viewMenu,editMenu,helpMenu;
 	Stack<String> s;
-	
+	int base =10;
 	
 	public Calculator()
 	{
@@ -58,10 +60,9 @@ public class Calculator extends JFrame implements ActionListener
 		gc.gridx = 0;
 		gc.gridy = 0;
 		gc.gridwidth = 2;
-        gc.insets = new Insets(40, 5,30, 5);
+        gc.insets = new Insets(50, 5,30, 5);
 		add(op,gc);
 		
-       
 		gc.gridx = 0;
 		gc.gridy = 1;
         gc.gridwidth = 2;
@@ -120,6 +121,10 @@ public class Calculator extends JFrame implements ActionListener
 		
 		
 		s = new Stack<String>();
+		if(s.isEmpty())
+		{
+			defaultValue();
+		}
 		
 		
 	}
@@ -131,30 +136,144 @@ public class Calculator extends JFrame implements ActionListener
 		int num1 =0;
 		int num2 =0;
 		String sign = "";
-		String inputs="";
-
 
 		
 		if(btp.getHexButton().isSelected())
 		{
-			cbp.a_Button.setEnabled(true);
-			cbp.b_Button.setEnabled(true);
-			cbp.c_Button.setEnabled(true);
-			cbp.d_Button.setEnabled(true);
-			cbp.e_Button.setEnabled(true);
-			cbp.f_Button.setEnabled(true);
+			base = 16;
+			Component[] calcButtonsComp = cbp.getComponents();
+			for(int i =0;i<calcButtonsComp.length;i++)
+			{
+				if(calcButtonsComp[i] instanceof JButton)
+				{
+					JButton temp = (JButton)calcButtonsComp[i];
+					try 
+					{
+						if(isHex(temp.getText()))
+						{
+							temp.setEnabled(true);
+						}
+						if(Integer.parseInt(temp.getText()) <= 9 )
+						{
+							temp.setEnabled(true);
+						}
+						else
+						{
+							temp.setEnabled(false);
+						}
+						
+						
+					}
+					catch(Exception ex)
+					{
+						
+					}
+					
+					
+				}
+			}
+		}
+		if(btp.getDecButton().isSelected())
+		{
+			base = 10;
+			Component[] calcButtonsComp = cbp.getComponents();
+			for(int i =0;i<calcButtonsComp.length;i++)
+			{
+				if(calcButtonsComp[i] instanceof JButton)
+				{
+					JButton temp = (JButton)calcButtonsComp[i];
+					try 
+					{
+						if(isHex(temp.getText()))
+						{
+							temp.setEnabled(false);
+						}
+						if(Integer.parseInt(temp.getText()) <= 9 )
+						{
+							temp.setEnabled(true);
+						}
+						else
+						{
+							temp.setEnabled(false);
+						}
+					}
+					catch(Exception ex)
+					{
+						
+					}
+				}
+			}
+			
 
 		}
-		else
+		if(btp.getOctButton().isSelected())
 		{
-			cbp.a_Button.setEnabled(false);
-			cbp.b_Button.setEnabled(false);
-			cbp.c_Button.setEnabled(false);
-			cbp.d_Button.setEnabled(false);
-			cbp.e_Button.setEnabled(false);
-			cbp.f_Button.setEnabled(false);
+			base = 8;
+			Component[] calcButtonsComp = cbp.getComponents();
+			for(int i =0;i<calcButtonsComp.length;i++)
+			{
+				if(calcButtonsComp[i] instanceof JButton)
+				{
+					JButton temp = (JButton)calcButtonsComp[i];
+					try 
+					{
+						if(isHex(temp.getText()))
+						{
+							temp.setEnabled(false);
+						}
+						if(Integer.parseInt(temp.getText()) < 8 )
+						{
+							temp.setEnabled(true);
+						}
+						else
+						{
+							temp.setEnabled(false);
+						}
+					}
+					catch(Exception ex)
+					{
+						
+					}
+				}
+			}
 			
+
 		}
+		if(btp.getBinButton().isSelected())
+		{
+			base = 2;
+			Component[] calcButtonsComp = cbp.getComponents();
+			for(int i =0;i<calcButtonsComp.length;i++)
+			{	
+				if(calcButtonsComp[i] instanceof JButton)
+				{
+					JButton temp = (JButton)calcButtonsComp[i];
+					try 
+					{
+						if(isHex(temp.getText()))
+						{
+							temp.setEnabled(false);
+						}
+						if(Integer.parseInt(temp.getText()) <=1 )
+						{
+							temp.setEnabled(true);
+						}
+						else
+						{
+							temp.setEnabled(false);
+						}
+					}
+					catch(Exception ex)
+					{
+						
+					}
+				}
+
+			}
+		}
+	
+		
+		//add the same for other bases
 		
 		Component[] calcButtonsComp = cbp.getComponents();
 		for(int i =0;i<calcButtonsComp.length;i++)
@@ -163,114 +282,172 @@ public class Calculator extends JFrame implements ActionListener
 			{
 				JButton temp = (JButton)calcButtonsComp[i];
 				
+			
+				
 				if(temp == e.getSource())
 				{
-					if(s.isEmpty()&&!isOperator(temp.getText()))
-					{
-						s.push(temp.getText());
-					}
-					else if(temp.getText().equals("C ") && !s.isEmpty())
-					{
-						while(!s.isEmpty())
-						{
-							s.pop();
-						}
-					}
-					else if((temp.getText().equals("CE") ||temp.getText().equals("\u2190")) && !s.isEmpty())
-					{
-						if(isNum(s.peek()))
-						{
-							s.pop();
-						}
-					}
-					else if(isOperator(s.peek()) && isOperator(temp.getText()))
-					{
-						s.pop();
-						s.push(temp.getText());
-					}
-					else if(isNum(s.peek()) && isNum(temp.getText()) )
-					{
-						int num = Integer.parseInt(s.peek())*10;
-						num += Integer.parseInt(temp.getText());
-						s.pop();
-						s.push(num+"");
-					
-					}
 
-					else if(temp.getText().equals("="))
+					if(s.isEmpty())
 					{
-						num2 = Integer.parseInt(s.peek());
-						s.pop();
-						
-						sign = s.peek();
-						s.pop();
-						
-						num1 = Integer.parseInt(s.peek());
-						s.pop();
-						
-						s.push( doCalculation(num1,num2,sign)+"" );
-//
+						defaultValue();
 					}
-					/*
-					else if( isOperator(s.peek()) && isNum(temp.getText()))
+					else if(s.isEmpty() && !isOperator(temp.getText()))
 					{
-						int loc = 0;
-						String[] tempString = new String[3];
 						s.push(temp.getText());
-						while(!s.isEmpty())
+						displayNum(Integer.parseInt(s.peek()));
+					}
+					else if(!s.isEmpty())
+					{
+						
+						
+						if(temp.getText().equals("C ") && !s.isEmpty())
+						{
+							while(!s.isEmpty())
+							{
+								s.pop();
+								
+							}
+							defaultValue();
+						}
+						else if((temp.getText().equals("CE") ||temp.getText().equals("\u2190")) && !s.isEmpty())
 						{
 							if(isNum(s.peek()))
 							{
-								tempString[loc] =s.peek()+"";
 								s.pop();
-								loc++;
-								
 							}
-							else if(isOperator(s.peek()))
+							if(s.isEmpty())
 							{
-								tempString[loc] = s.peek();
-								s.pop();
-								loc++;
+								defaultValue();
 							}
 						}
-						for(int x =0;x<tempString.length;x++)
+						else if(!s.isEmpty() && isOperator(s.peek()) && isOperator(temp.getText()) )
 						{
-							System.out.println(tempString[x]);
+							s.pop();
+							s.push(temp.getText());
+
 						}
-						//num1 = Integer.parseInt(tempString[1]);
-						//sign =tempString[0];
-						//num2 = Integer.parseInt(tempString[2]);
-						//s.push(doCalculation(num1,num2,sign)+"" );
-						//s.push(temp.getText());
-					}*/
-					//need one for ic just doing costant operations
-					else
-					{
-						int loc =0;
-						String[] tempString = new String[3];
-						Stack<String> tempStack = new Stack<String>();
-						tempStack = (Stack<String>) s.clone();
-						while(!s.isEmpty())
+						else if(isNum(s.peek()) && isNum(temp.getText()) )
 						{
+							int num = Integer.parseInt(s.peek())*10;
+							num += Integer.parseInt(temp.getText());
+							s.pop();
+							s.push(num+"");
+							
+							displayNum(Integer.parseInt(s.peek()));
 						
-							tempString[loc] =tempStack.peek();
-			
-							if(loc <=4)
-							{
-								
-							}
 						}
-						s.push(temp.getText());
+						
+						else if(isNum(s.peek())&&isHex(temp.getText()))
+						{
+							if(!s.peek().equals("0"))
+							{
+								String num = s.peek();
+								num += (temp.getText());
+								s.pop();
+								s.push(num+"");
+							}
+							else
+							{
+								s.pop();
+								s.push(temp.getText());
+							}
+							//System.out.println(num);
+							//num = hexToDecimal(num)+"";
+							//System.out.println(num);
+							//s.pop();
+							//s.push(num+"");
+						}
+						
+						else if(isHex(temp.getText()))
+						{
+							
+							//int num = hexToDecimal(temp.getText());
+							
+							s.push(temp.getText());
+						}
+						else if(temp.getText().equals("=")&&s.size() ==3 && btp.getDecButton().isSelected())
+						{
+							num2 = Integer.parseInt(s.peek());
+							s.pop();
+							
+							sign = s.peek();
+							s.pop();
+							
+							num1 = Integer.parseInt(s.peek());
+							s.pop();
+							
+							s.push( doCalculation(num1,num2,sign)+"" );
+							displayNum(Integer.parseInt(s.peek()));
+						}
+						else if(temp.getText().equals("=")&&s.size() ==3 && btp.getHexButton().isSelected())
+						{
+							
+							num2 = hexToDecimal(s.peek());
+							s.pop();
+							
+							sign = s.peek();
+							s.pop();
+							
+							num1 = hexToDecimal(s.peek());
+							s.pop();
+							
+							s.push( doCalculation(num1,num2,sign)+"" );
+							displayNum(Integer.parseInt(s.peek()));
+						}
+						else
+						{
+							if(s.size() ==3 && isOperator(temp.getText()))
+							{
+								//String holdSign = s.peek();
+								//s.pop();
+								
+								//String holdSign = temp.getText();
+								if(base == 16)
+								{
+									num2 = hexToDecimal(s.peek());
+									s.pop();
+									
+									sign = s.peek();
+									s.pop();
+									
+									num1 = hexToDecimal(s.peek());
+									s.pop();
+									System.out.println(num1+sign+num2);
+								}
+								else if(base == 10)
+								{
+									num2 = Integer.parseInt(s.peek());
+									s.pop();
+									
+									sign = s.peek();
+									s.pop();
+									
+									num1 = Integer.parseInt(s.peek());
+									s.pop();
+								}
+								s.push(doCalculation(num1,num2,sign)+"");
+								displayNum(Integer.parseInt(s.peek()));
+								//s.push(holdSign);
+							}
+							s.push(temp.getText());
+						}
+						
+						
 					}
-					
-					
+					/*
+					if(!s.isEmpty() && isNum(s.peek()))
+					{
+						op.outputTextArea.setText(s.peek());
+					}*/
+				
 				}
 			}
 			
 			
 		}
+	
+		System.out.println( s.toString()+" "+s.size());
 		
-		System.out.println( s.toString());
 		
 		
 		
@@ -278,7 +455,7 @@ public class Calculator extends JFrame implements ActionListener
 	
 	public boolean isOperator(String value)
 	{
-		if(value.equals("/")||value.equals("*")||value.equals("+")||value.equals("-")||value.equals("Mod"))
+		if(value.equals("/")||value.equals("*")||value.equals("+")||value.equals("-")||value.equals("Mod")||value.equals("C ")||value.equals("CE") ||value.equals("\u2190")||value.equals("="))
 		{
 			return true;
 		}
@@ -298,7 +475,6 @@ public class Calculator extends JFrame implements ActionListener
 		}
 		
 	}
-	
 	public int doCalculation(int num1,int num2,String sign)
 	{
 		int answer =0;
@@ -327,7 +503,72 @@ public class Calculator extends JFrame implements ActionListener
 		
 		return answer;
 	}
-
+	
+	public void displayNum(int num)
+	{
+		
+		op.outputTextArea.setFont(new Font("Arial", Font.PLAIN, 30) );
+		op.outputTextArea.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+		if(base != 10)
+		{
+			
+		}
+		op.outputTextArea.setText("\n"+num+"");
+		System.out.println(hexToDecimal(num+""));
+	}
+	
+	public boolean isHex(String input)
+	{
+		if(input.equals("A")||input.equals("B")||input.equals("C")||input.equals("D")||input.equals("E")||input.equals("F"))
+		{
+			return true;
+		}
+		return false;
+	}
+			
+	public void defaultValue()
+	{
+			s.push(0+"");
+			displayNum(Integer.parseInt(s.peek()));
+	}
+	
+	public int hexToDecimal(String num)
+	{
+		 String digits = "0123456789ABCDEF";
+	     num = num.toUpperCase();
+	     int sum = 0;
+	     for (int i = 0; i < num.length(); i++) 
+	     {
+	            char c = num.charAt(i);
+	            int d = digits.indexOf(c);
+	            sum = 16*sum + d;
+	     }
+	        return sum;
+	}
+	public String OctalTodecimal(String num)
+	{
+		return Integer.parseInt(num,8)+"";
+	}
+	public String BinaryTodecimal(String num)
+	{
+		return Integer.parseInt(num,2)+"";
+	}
+	
+	public String decimalToHex(String num)
+	{
+		return Integer.parseInt(num,16)+"";
+	}
+	public String decimalToOctal(String num)
+	{
+		return Integer.parseInt(num,8)+"";
+	}
+	public String decimalToBinary(String num)
+	{
+		return Integer.parseInt(num,2)+"";
+	}
+	
+	
+	
 	//getters
 
 	public outputPanel getOutputPanel() 

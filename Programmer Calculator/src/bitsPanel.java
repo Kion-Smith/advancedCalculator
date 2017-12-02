@@ -19,7 +19,8 @@ public class bitsPanel extends JPanel
 		//setBorder(BorderFactory.createEtchedBorder());
         
 		bitsTextArea = new JTextArea(5,20);
-		bitsScrollPane = new JScrollPane(bitsTextArea);
+		
+		bitsScrollPane = new JScrollPane(bitsTextArea,JScrollPane.VERTICAL_SCROLLBAR_NEVER, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		
 		bitsTextArea.setEditable(false);
 		bitsTextArea.setLineWrap(false);
@@ -28,7 +29,7 @@ public class bitsPanel extends JPanel
 		GridBagConstraints gc = new GridBagConstraints();
 		gc.gridx = 0;
 		gc.gridy = 0;
-		gc.ipadx = 520;
+		gc.ipadx = 537;
 		gc.ipady = 80;
 		add(bitsScrollPane,gc);
 
