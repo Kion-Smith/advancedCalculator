@@ -4,17 +4,23 @@ import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Stack;
 
+import javax.swing.Action;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JRadioButton;
+import javax.swing.KeyStroke;
+import javax.swing.text.DefaultEditorKit;
 
 
 public class Calculator extends JFrame implements ActionListener
@@ -25,17 +31,9 @@ public class Calculator extends JFrame implements ActionListener
 	private baseTypePanel btp;
 	private wordTypePanel wtp;
 	
-	
-	/*
-	String bitsString="     0000      0000      0000      0000                 0000      0000      0000      0000     \n"+
-			 "                                                                                           \n"+
-			 "     0000      0000      0000      0000                 0000      0000      0000      0000     \n"+
-			 "                                                                                                                       0     ";*/
-	//String[] array = bitsString.split("");
-	
 	JMenuBar menu;
 	JMenu viewMenu,editMenu,helpMenu;
-	JMenuItem aboutItem;
+	JMenuItem aboutItem,viewItem,hideItem,copyItem;
 	Stack<String> s;
 	int base =10;
 	
@@ -49,8 +47,11 @@ public class Calculator extends JFrame implements ActionListener
 		helpMenu = new JMenu("Help");
 		
 		aboutItem = new JMenuItem("About");
+		viewItem= new JMenuItem("Hide");
+		hideItem= new JMenuItem("Show");
+		copyItem= new JMenuItem("Copy");
 		
-		helpMenu.add(aboutItem);
+	
 		
 		
 		menu.add(viewMenu);
@@ -58,6 +59,13 @@ public class Calculator extends JFrame implements ActionListener
 		menu.add(helpMenu);
 		
 		setJMenuBar(menu);
+		
+		viewMenu.add(viewItem);
+		viewMenu.add(hideItem);
+		
+		editMenu.add(copyItem);
+		
+		helpMenu.add(aboutItem);
 		
 
 		op = new outputPanel();
@@ -100,7 +108,7 @@ public class Calculator extends JFrame implements ActionListener
 		gc.insets = new Insets(5, 120, 0, 5);
 		add(cbp,gc);
 		
-		aboutItem.addActionListener(this);
+		
 		
 		Component[] baseTypeComp = btp.getComponents();
 		for(int i =0;i<baseTypeComp.length;i++)
@@ -134,7 +142,10 @@ public class Calculator extends JFrame implements ActionListener
 		}
 		
 		
-		
+		aboutItem.addActionListener(this);
+		copyItem.addActionListener(this);
+		viewItem.addActionListener(this);
+		hideItem.addActionListener(this);
 
 		
 		s = new Stack<String>();
@@ -152,8 +163,32 @@ public class Calculator extends JFrame implements ActionListener
 		int num1 =0;
 		int num2 =0;
 		String sign = "";
+		String output ="";
 		
-		
+		if(e.getSource() == copyItem)
+		{
+			 output = op.getOutputTextArea().getText();
+			StringSelection stringSelection = new StringSelection(output);
+			Clipboard clpbrd = Toolkit.getDefaultToolkit().getSystemClipboard();
+			clpbrd.setContents(stringSelection, null);
+		}
+		if(e.getSource() == viewItem)
+		{
+			op.setVisible(false);
+			bp.setVisible(false);
+			cbp.setVisible(false);
+			btp.setVisible(false);
+			wtp.setVisible(false);
+		}
+		if(e.getSource() == hideItem)
+		{
+
+			op.setVisible(true);
+			bp.setVisible(true);
+			cbp.setVisible(true);
+			btp.setVisible(true);
+			wtp.setVisible(true);
+		}
 		if(e.getSource() == aboutItem)
 		{
 			JFrame about = new JFrame();
@@ -426,6 +461,32 @@ public class Calculator extends JFrame implements ActionListener
 							displayNum((s.peek()));
 						
 						}
+						else if(isHex(s.peek())&&isNum(temp.getText()))
+						{
+							if(!s.peek().equals("0"))
+							{
+								String num = s.peek();
+								num += (temp.getText());
+								s.pop();
+								s.push(num+"");
+							}
+							else
+							{
+								String num= s.peek();
+								num = hexToDecimal(num)+"";
+								num += temp.getText();
+								s.pop();
+								s.push(temp.getText());
+							}
+							System.out.println(s.peek());
+							displayNum(s.peek());
+							//System.out.println(num);
+							//num = hexToDecimal(num)+"";
+							//System.out.println(num);
+							//s.pop();
+							//s.push(num+"");
+						}
+						
 						
 						else if(isNum(s.peek())&&isHex(temp.getText()))
 						{
@@ -441,6 +502,7 @@ public class Calculator extends JFrame implements ActionListener
 								s.pop();
 								s.push(temp.getText());
 							}
+							System.out.println(s.peek());
 							displayNum(s.peek());
 							//System.out.println(num);
 							//num = hexToDecimal(num)+"";
