@@ -128,7 +128,6 @@ public class Calculator extends JFrame implements ActionListener
 		
 		
 	}
-
 	
 	public void actionPerformed(ActionEvent e) 
 	{
@@ -136,7 +135,14 @@ public class Calculator extends JFrame implements ActionListener
 		int num1 =0;
 		int num2 =0;
 		String sign = "";
-
+		String bitsPanel=" 0000   0000   0000   0000       0000   0000   0000   0000 \n"+
+						 " 63                                       47                  \n"+
+						 " 0000   0000   0000   0000       0000   0000   0000   0000 \n"+
+						 " 31                                       15                                 0  ";
+		
+		bp.bitsTextArea.setFont(new Font("Arial", Font.PLAIN, 16) );
+		//bp.bitsTextArea.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+		bp.bitsTextArea.setText(bitsPanel);
 		
 		if(btp.getHexButton().isSelected())
 		{
@@ -172,6 +178,7 @@ public class Calculator extends JFrame implements ActionListener
 					
 				}
 			}
+			displaySum(s.peek());
 		}
 		if(btp.getDecButton().isSelected())
 		{
@@ -204,7 +211,7 @@ public class Calculator extends JFrame implements ActionListener
 				}
 			}
 			
-
+			displaySum(s.peek());
 		}
 		if(btp.getOctButton().isSelected())
 		{
@@ -237,7 +244,7 @@ public class Calculator extends JFrame implements ActionListener
 				}
 			}
 			
-
+			displaySum(s.peek());
 		}
 		if(btp.getBinButton().isSelected())
 		{
@@ -270,6 +277,7 @@ public class Calculator extends JFrame implements ActionListener
 				}
 
 			}
+			displaySum(s.peek());
 		}
 	
 		
@@ -293,8 +301,12 @@ public class Calculator extends JFrame implements ActionListener
 					}
 					else if(s.isEmpty() && !isOperator(temp.getText()))
 					{
+						
+						System.out.println("zran");
 						s.push(temp.getText());
-						displayNum(Integer.parseInt(s.peek()));
+						displayNum((s.peek()));
+						
+						
 					}
 					else if(!s.isEmpty())
 					{
@@ -322,18 +334,22 @@ public class Calculator extends JFrame implements ActionListener
 						}
 						else if(!s.isEmpty() && isOperator(s.peek()) && isOperator(temp.getText()) )
 						{
+							
 							s.pop();
 							s.push(temp.getText());
 
 						}
+						
 						else if(isNum(s.peek()) && isNum(temp.getText()) )
 						{
+							System.out.println("zran");
 							int num = Integer.parseInt(s.peek())*10;
 							num += Integer.parseInt(temp.getText());
+							
 							s.pop();
 							s.push(num+"");
 							
-							displayNum(Integer.parseInt(s.peek()));
+							displayNum((s.peek()));
 						
 						}
 						
@@ -351,6 +367,7 @@ public class Calculator extends JFrame implements ActionListener
 								s.pop();
 								s.push(temp.getText());
 							}
+							displayNum(s.peek());
 							//System.out.println(num);
 							//num = hexToDecimal(num)+"";
 							//System.out.println(num);
@@ -364,8 +381,43 @@ public class Calculator extends JFrame implements ActionListener
 							//int num = hexToDecimal(temp.getText());
 							
 							s.push(temp.getText());
+							displayNum(s.peek());
 						}
-						else if(temp.getText().equals("=")&&s.size() ==3 && btp.getDecButton().isSelected())
+						else if(temp.getText().equals("=")&&s.size() ==3 && btp.getHexButton().isSelected())
+						{
+							
+						
+							try
+							{
+								num2 = hexToDecimal(s.peek());
+							}
+							catch(NumberFormatException ex)
+							{
+								//num2 = hexToDecimal(Integer.parseInt(s.peek())+"");
+								num2 = hexToDecimal(s.peek());
+							}
+							
+							s.pop();
+							
+							sign = s.peek();
+							s.pop();
+							
+							try 
+							{
+								
+								num1 = Integer.parseInt(s.peek());
+							}
+							catch(NumberFormatException ex)
+							{
+								num1 = hexToDecimal(s.peek());
+				
+							}
+							s.pop();
+							
+							s.push( doCalculation(num1,num2,sign)+"" );
+							displaySum(s.peek());
+						}
+						else if(temp.getText().equals("=")&&s.size() ==3 && (btp.getDecButton().isSelected() ))
 						{
 							num2 = Integer.parseInt(s.peek());
 							s.pop();
@@ -377,23 +429,44 @@ public class Calculator extends JFrame implements ActionListener
 							s.pop();
 							
 							s.push( doCalculation(num1,num2,sign)+"" );
-							displayNum(Integer.parseInt(s.peek()));
+							displaySum(Integer.parseInt(s.peek())+"");
 						}
-						else if(temp.getText().equals("=")&&s.size() ==3 && btp.getHexButton().isSelected())
+						
+						else if(temp.getText().equals("=")&&s.size() ==3 && btp.getOctButton().isSelected())
 						{
 							
-							num2 = hexToDecimal(s.peek());
+							num2 = OctalTodecimal(s.peek());
 							s.pop();
 							
 							sign = s.peek();
 							s.pop();
 							
-							num1 = hexToDecimal(s.peek());
+							num1 = OctalTodecimal(s.peek());
 							s.pop();
 							
 							s.push( doCalculation(num1,num2,sign)+"" );
-							displayNum(Integer.parseInt(s.peek()));
+							displaySum(s.peek());
+							
 						}
+						else if(temp.getText().equals("=")&&s.size() ==3 && btp.getBinButton().isSelected())
+						{
+							
+							num2 = 
+									BinaryTodecimal(s.peek());
+							s.pop();
+							
+							sign = s.peek();
+							s.pop();
+							
+							num1 = Integer.parseInt(s.peek());
+							s.pop();
+							
+							s.push( doCalculation(num1,num2,sign)+"" );
+							displaySum(s.peek());
+							
+							
+						}
+					
 						else
 						{
 							if(s.size() ==3 && isOperator(temp.getText()))
@@ -404,15 +477,33 @@ public class Calculator extends JFrame implements ActionListener
 								//String holdSign = temp.getText();
 								if(base == 16)
 								{
-									num2 = hexToDecimal(s.peek());
+									try
+									{
+										num2 = hexToDecimal(s.peek());
+									}
+									catch(NumberFormatException ex)
+									{
+										//num2 = hexToDecimal(Integer.parseInt(s.peek())+"");
+										num2 = hexToDecimal(s.peek());
+									}
+									
 									s.pop();
 									
 									sign = s.peek();
 									s.pop();
 									
-									num1 = hexToDecimal(s.peek());
+									try 
+									{
+										
+										num1 = Integer.parseInt(s.peek());
+									}
+									catch(NumberFormatException ex)
+									{
+										num1 = hexToDecimal(s.peek());
+						
+									}
 									s.pop();
-									System.out.println(num1+sign+num2);
+									//System.out.println(num1+sign+num2);
 								}
 								else if(base == 10)
 								{
@@ -425,8 +516,80 @@ public class Calculator extends JFrame implements ActionListener
 									num1 = Integer.parseInt(s.peek());
 									s.pop();
 								}
+								else if(btp.getOctButton().isSelected())
+								{
+									try 
+									{
+										num2 = OctalTodecimal(s.peek());
+									}
+									catch(NumberFormatException ex)
+									{
+										num2 = Integer.parseInt(decimalToBinary(Integer.parseInt(s.peek())));
+									}
+									s.pop();
+									
+									sign = s.peek();
+									s.pop();
+									
+									//num1 = Integer.parseInt(decimalToOctal(Integer.parseInt(s.peek())));
+									try 
+									{
+										num1 = OctalTodecimal(s.peek());
+									}
+									catch(NumberFormatException ex)
+									{
+										num2 = Integer.parseInt(decimalToBinary(Integer.parseInt(s.peek())));
+									}
+									s.pop();
+								}
+								else if(btp.getBinButton().isSelected())
+								{
+									/*
+									 * num2 = BinaryTodecimal(s.peek());
+									s.pop();
+							
+									sign = s.peek();
+									s.pop();
+							
+									num1 = BinaryTodecimal(s.peek());
+									s.pop();
+							
+									 */
+									
+									try
+									{
+										num2 = BinaryTodecimal(s.peek());
+									}
+									catch(NumberFormatException ex)
+									{
+										num2 = Integer.parseInt(decimalToBinary(Integer.parseInt(s.peek())));
+									}
+									
+									s.pop();
+									
+									sign = s.peek();
+									s.pop();
+									
+									try
+									{
+										num1 = BinaryTodecimal(s.peek());
+									}
+									catch(NumberFormatException ex)
+									{
+										num1 = Integer.parseInt(decimalToBinary(Integer.parseInt(s.peek())));
+									}
+									
+									
+									s.pop();
+									
+									
+									
+									
+									
+								
+								}
 								s.push(doCalculation(num1,num2,sign)+"");
-								displayNum(Integer.parseInt(s.peek()));
+								displaySum((s.peek()));
 								//s.push(holdSign);
 							}
 							s.push(temp.getText());
@@ -475,10 +638,10 @@ public class Calculator extends JFrame implements ActionListener
 		}
 		
 	}
-	public int doCalculation(int num1,int num2,String sign)
+	public String doCalculation(int num1,int num2,String sign)
 	{
 		int answer =0;
-		
+		String answerString ="";
 		
 		if(sign.equals("+"))
 		{
@@ -501,20 +664,57 @@ public class Calculator extends JFrame implements ActionListener
 			answer= num1%num2;
 		}
 		
-		return answer;
+		//if(btp.getHexButton().isSelected())
+		//{
+			//answerString = decimalToHex(answer);
+			//op.outputTextArea.setText("\n"+numString);
+			//return answerString;
+		//}
+		return answer+"";
 	}
 	
-	public void displayNum(int num)
+	public void displayNum(String num)
 	{
 		
 		op.outputTextArea.setFont(new Font("Arial", Font.PLAIN, 30) );
 		op.outputTextArea.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
-		if(base != 10)
-		{
-			
-		}
-		op.outputTextArea.setText("\n"+num+"");
+		///if(btp.getHexButton().isSelected())
+		//{
+			//String numString = decimalToHex(num);
+			//op.outputTextArea.setText("\n"+numString);
+		//}
+	//	else if(btp.getDecButton().isSelected())
+	//	{
+			op.outputTextArea.setText("\n"+num+"");
+		//}
 		System.out.println(hexToDecimal(num+""));
+	//	System.out.println(hexToDecimal(numString+""));
+	}
+	public String displaySum(String num)
+	{
+		op.outputTextArea.setFont(new Font("Arial", Font.PLAIN, 30) );
+		op.outputTextArea.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+		
+		if(btp.getHexButton().isSelected())
+		{
+			String numString = decimalToHex(Integer.parseInt(num));
+			op.outputTextArea.setText("\n"+numString);
+		}
+		else if(btp.getDecButton().isSelected())
+		{
+			op.outputTextArea.setText("\n"+num+"");
+		}
+		else if(btp.getOctButton().isSelected())
+		{
+			String numString = decimalToOctal(Integer.parseInt(num));
+			op.outputTextArea.setText("\n"+numString+"");
+		}
+		else if(btp.getBinButton().isSelected())
+		{
+			String numString = decimalToBinary(Integer.parseInt(num));
+			op.outputTextArea.setText("\n"+numString+"");
+		}
+		return num;
 	}
 	
 	public boolean isHex(String input)
@@ -529,7 +729,7 @@ public class Calculator extends JFrame implements ActionListener
 	public void defaultValue()
 	{
 			s.push(0+"");
-			displayNum(Integer.parseInt(s.peek()));
+			displayNum(s.peek());
 	}
 	
 	public int hexToDecimal(String num)
@@ -545,26 +745,26 @@ public class Calculator extends JFrame implements ActionListener
 	     }
 	        return sum;
 	}
-	public String OctalTodecimal(String num)
+	public int OctalTodecimal(String num)
 	{
-		return Integer.parseInt(num,8)+"";
+		return Integer.parseInt(num,8);
 	}
-	public String BinaryTodecimal(String num)
+	public int BinaryTodecimal(String num)
 	{
-		return Integer.parseInt(num,2)+"";
+		return Integer.parseInt(num,2);
 	}
 	
-	public String decimalToHex(String num)
+	public String decimalToHex(int num)
 	{
-		return Integer.parseInt(num,16)+"";
+		return (Integer.toHexString(num)).toUpperCase();
 	}
-	public String decimalToOctal(String num)
+	public String decimalToOctal(int num)
 	{
-		return Integer.parseInt(num,8)+"";
+		return Integer.toOctalString(num);
 	}
-	public String decimalToBinary(String num)
+	public String decimalToBinary(int num)
 	{
-		return Integer.parseInt(num,2)+"";
+		return Integer.toBinaryString(num);
 	}
 	
 	
