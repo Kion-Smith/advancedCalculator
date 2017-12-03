@@ -4,7 +4,13 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
-
+/*NAME: Kion Smith
+ * ID: kls160430
+ * CLASS: CS2336.502
+ * 
+ * 
+ * Display image in new jframe
+ */
 public class aboutPanel extends JPanel
 {
 	BufferedImage image;

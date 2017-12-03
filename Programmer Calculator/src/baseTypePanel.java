@@ -6,6 +6,13 @@ import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+/*NAME: Kion Smith
+ * ID: kls160430
+ * CLASS: CS2336.502
+ * 
+ * 
+ * base type for changeing the type
+ */
 
 public class baseTypePanel extends JPanel
 {

@@ -21,7 +21,13 @@ import javax.swing.JMenuItem;
 import javax.swing.JRadioButton;
 import javax.swing.KeyStroke;
 import javax.swing.text.DefaultEditorKit;
-
+/*NAME: Kion Smith
+ * ID: kls160430
+ * CLASS: CS2336.502
+ * 
+ * 
+ * Places JPanel object and also does calculation
+ */
 
 public class Calculator extends JFrame implements ActionListener
 {
@@ -31,11 +37,11 @@ public class Calculator extends JFrame implements ActionListener
 	private baseTypePanel btp;
 	private wordTypePanel wtp;
 	
-	JMenuBar menu;
-	JMenu viewMenu,editMenu,helpMenu;
-	JMenuItem aboutItem,viewItem,hideItem,copyItem;
-	Stack<String> s;
-	int base =10;
+	public JMenuBar menu;
+	public JMenu viewMenu,editMenu,helpMenu;
+	public JMenuItem aboutItem,viewItem,hideItem,copyItem;
+	public Stack<String> s;
+	public int base =10;
 	
 	public Calculator()
 	{

@@ -7,7 +7,13 @@ import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
-
+/*NAME: Kion Smith
+ * ID: kls160430
+ * CLASS: CS2336.502
+ * 
+ * 
+ * All calculator buttons
+ */
 public class calculatorButtonsPanel extends JPanel
 {
 	JButton zeroButton,oneButton,twoButton,threeButton,fourButton,fiveButton,sixButton,sevenButton,eightButton,nineButton,//base 10 buttons

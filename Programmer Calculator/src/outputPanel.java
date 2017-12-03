@@ -5,7 +5,13 @@ import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-
+/*NAME: Kion Smith
+ * ID: kls160430
+ * CLASS: CS2336.502
+ * 
+ * 
+ * show the output panel
+ */
 public class outputPanel extends JPanel
 {
 	public JTextArea outputTextArea;

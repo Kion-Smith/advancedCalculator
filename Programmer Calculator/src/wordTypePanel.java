@@ -6,6 +6,13 @@ import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+/*NAME: Kion Smith
+ * ID: kls160430
+ * CLASS: CS2336.502
+ * 
+ * 
+ * unimplemented word type( used just for show)
+ */
 
 public class wordTypePanel extends JPanel
 {
