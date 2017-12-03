@@ -13,6 +13,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JRadioButton;
 
 
@@ -24,8 +25,17 @@ public class Calculator extends JFrame implements ActionListener
 	private baseTypePanel btp;
 	private wordTypePanel wtp;
 	
+	
+	/*
+	String bitsString="     0000      0000      0000      0000                 0000      0000      0000      0000     \n"+
+			 "                                                                                           \n"+
+			 "     0000      0000      0000      0000                 0000      0000      0000      0000     \n"+
+			 "                                                                                                                       0     ";*/
+	//String[] array = bitsString.split("");
+	
 	JMenuBar menu;
 	JMenu viewMenu,editMenu,helpMenu;
+	JMenuItem aboutItem;
 	Stack<String> s;
 	int base =10;
 	
@@ -37,6 +47,11 @@ public class Calculator extends JFrame implements ActionListener
 		viewMenu = new JMenu("View");
 		editMenu = new JMenu("Edit");
 		helpMenu = new JMenu("Help");
+		
+		aboutItem = new JMenuItem("About");
+		
+		helpMenu.add(aboutItem);
+		
 		
 		menu.add(viewMenu);
 		menu.add(editMenu);
@@ -85,6 +100,8 @@ public class Calculator extends JFrame implements ActionListener
 		gc.insets = new Insets(5, 120, 0, 5);
 		add(cbp,gc);
 		
+		aboutItem.addActionListener(this);
+		
 		Component[] baseTypeComp = btp.getComponents();
 		for(int i =0;i<baseTypeComp.length;i++)
 		{
@@ -118,7 +135,7 @@ public class Calculator extends JFrame implements ActionListener
 		
 		
 		
-		
+
 		
 		s = new Stack<String>();
 		if(s.isEmpty())
@@ -135,17 +152,24 @@ public class Calculator extends JFrame implements ActionListener
 		int num1 =0;
 		int num2 =0;
 		String sign = "";
-		String bitsPanel=" 0000   0000   0000   0000       0000   0000   0000   0000 \n"+
-						 " 63                                       47                  \n"+
-						 " 0000   0000   0000   0000       0000   0000   0000   0000 \n"+
-						 " 31                                       15                                 0  ";
 		
-		bp.bitsTextArea.setFont(new Font("Arial", Font.PLAIN, 16) );
-		//bp.bitsTextArea.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
-		bp.bitsTextArea.setText(bitsPanel);
+		
+		if(e.getSource() == aboutItem)
+		{
+			JFrame about = new JFrame();
+			
+			about.setTitle("About");
+			about.setSize(460,406);//620,580
+			about.setVisible(true);
+			about.setResizable(false);
+			
+			about.setContentPane(new aboutPanel());
+			
+		}
 		
 		if(btp.getHexButton().isSelected())
 		{
+			
 			base = 16;
 			Component[] calcButtonsComp = cbp.getComponents();
 			for(int i =0;i<calcButtonsComp.length;i++)
@@ -178,7 +202,16 @@ public class Calculator extends JFrame implements ActionListener
 					
 				}
 			}
-			displaySum(s.peek());
+			
+			try
+			{
+				displaySum(s.peek());
+			}
+			catch(Exception ex)
+			{
+				
+			}
+			//displaySum(s.peek());
 		}
 		if(btp.getDecButton().isSelected())
 		{
@@ -211,7 +244,16 @@ public class Calculator extends JFrame implements ActionListener
 				}
 			}
 			
-			displaySum(s.peek());
+			try
+			{
+				displaySum(s.peek());
+			}
+			catch(Exception ex)
+			{
+				
+			}
+			
+			//displaySum(s.peek());
 		}
 		if(btp.getOctButton().isSelected())
 		{
@@ -244,7 +286,14 @@ public class Calculator extends JFrame implements ActionListener
 				}
 			}
 			
-			displaySum(s.peek());
+			try
+			{
+				displaySum(s.peek());
+			}
+			catch(Exception ex)
+			{
+				
+			}
 		}
 		if(btp.getBinButton().isSelected())
 		{
@@ -277,7 +326,15 @@ public class Calculator extends JFrame implements ActionListener
 				}
 
 			}
-			displaySum(s.peek());
+			try
+			{
+				displaySum(s.peek());
+			}
+			catch(Exception ex)
+			{
+				
+			}
+			//displaySum(s.peek());
 		}
 	
 		
@@ -321,6 +378,23 @@ public class Calculator extends JFrame implements ActionListener
 							}
 							defaultValue();
 						}
+						else if(isNum(s.peek()) && temp.getText().equals("\u00B1"))
+						{
+							
+							int tempInt =Integer.parseInt(s.peek()) * -1;
+							s.pop();
+							s.push(tempInt+"");
+							if(Integer.parseInt(s.peek())<0)
+							{
+								tempInt *= -1;
+								displayNum(tempInt+"-");
+							}
+							else
+							{
+								
+								displayNum(tempInt+"");
+							}
+						}
 						else if((temp.getText().equals("CE") ||temp.getText().equals("\u2190")) && !s.isEmpty())
 						{
 							if(isNum(s.peek()))
@@ -339,7 +413,7 @@ public class Calculator extends JFrame implements ActionListener
 							s.push(temp.getText());
 
 						}
-						
+					
 						else if(isNum(s.peek()) && isNum(temp.getText()) )
 						{
 							System.out.println("zran");
@@ -608,8 +682,41 @@ public class Calculator extends JFrame implements ActionListener
 			
 			
 		}
-	
-		System.out.println( s.toString()+" "+s.size());
+		
+		try
+		{
+			
+			bp.getBitsPanel().setText("");
+			String tempBinary =decimalToBinary(Integer.parseInt(s.peek()));
+
+			int count =tempBinary.length();
+			
+			for(int i =0;i<=(63-count);i++)
+			{
+				if(i ==0)
+				{
+					bp.getBitsPanel().append("                             ");
+				}
+				bp.getBitsPanel().append("0");
+				
+				if(i== 63/2)
+				{
+					bp.getBitsPanel().append("\n\n                             ");
+				}
+				
+			}
+			bp.getBitsPanel().append(tempBinary);
+			
+			//bp.getBitsPanel().setText("");
+		/**/
+
+		}
+		catch(Exception ex)
+		{
+			
+		}
+		
+		System.out.println( s.toString());
 		
 		
 		
@@ -694,6 +801,9 @@ public class Calculator extends JFrame implements ActionListener
 	{
 		op.outputTextArea.setFont(new Font("Arial", Font.PLAIN, 30) );
 		op.outputTextArea.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+		if(isNum(num))
+		{
+			
 		
 		if(btp.getHexButton().isSelected())
 		{
@@ -713,6 +823,7 @@ public class Calculator extends JFrame implements ActionListener
 		{
 			String numString = decimalToBinary(Integer.parseInt(num));
 			op.outputTextArea.setText("\n"+numString+"");
+		}
 		}
 		return num;
 	}

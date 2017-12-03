@@ -1,3 +1,4 @@
+import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 
@@ -32,6 +33,14 @@ public class bitsPanel extends JPanel
 		gc.ipadx = 537;
 		gc.ipady = 80;
 		add(bitsScrollPane,gc);
+		
+		String bitsPanel="                             00000000000000000000000000000000     \n\n"+
+				
+				 		 "                             00000000000000000000000000000000     \n";
+
+		bitsTextArea.setFont(new Font("Arial", Font.PLAIN, 16) );
+		//bp.bitsTextArea.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+		bitsTextArea.setText(bitsPanel);
 
 	}
 
