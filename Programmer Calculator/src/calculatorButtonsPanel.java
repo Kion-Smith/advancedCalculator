@@ -3,7 +3,6 @@ import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -24,7 +23,6 @@ public class calculatorButtonsPanel extends JPanel
 			,ceButton,mcButton,mrButton,plusButton,backspaceButton
 			,plusMinsuButton,mMinusButton,mPlusButton,msButton,clearButton; //all disable buttons
 
-	ArrayList<JButton> valueButtons = new ArrayList<JButton>();
 	
 	public calculatorButtonsPanel()
 	{
@@ -84,25 +82,7 @@ public class calculatorButtonsPanel extends JPanel
 		mPlusButton = new JButton("M+");
 		msButton = new JButton("MS");
 		
-		
-		valueButtons.add(zeroButton);
-		valueButtons.add(oneButton);
-		valueButtons.add(twoButton);
-		valueButtons.add(threeButton); 
-		valueButtons.add(fourButton);
-		valueButtons.add(fiveButton); 
-		valueButtons.add(sixButton); 
-		valueButtons.add(sevenButton); 
-		valueButtons.add(eightButton);
-		valueButtons.add(nineButton);
-		valueButtons.add(a_Button);
-		valueButtons.add(b_Button); 
-		valueButtons.add(c_Button); 
-		valueButtons.add(d_Button);
-		valueButtons.add(e_Button); 
-		valueButtons.add(f_Button); 
-		
-		
+
 		//disable the buttons
 		decimalButton.setEnabled(false);
 		sqrtButton.setEnabled(false);
@@ -132,7 +112,7 @@ public class calculatorButtonsPanel extends JPanel
         GridBagConstraints gc = new GridBagConstraints();
         
 
-       
+       //add butosn for the first row
         gc.anchor = GridBagConstraints.FIRST_LINE_START;
         
         gc.gridx = 0;
@@ -177,7 +157,7 @@ public class calculatorButtonsPanel extends JPanel
         gc.insets = new Insets(-32, 2, 0, 0);
         add(emptyButton11, gc);
         
-        
+        // second row of empty buttons
         gc.gridx = 1;
         gc.gridy = 5;
         gc.ipadx = 11;
@@ -215,7 +195,6 @@ public class calculatorButtonsPanel extends JPanel
         add(emptyButton5, gc);
 
        
-   
         modButton.setFont(new Font("Arial", Font.PLAIN, 12));
         modButton.setMargin(new Insets(0,0,0,0));	
         gc.gridx = 1;
@@ -225,10 +204,11 @@ public class calculatorButtonsPanel extends JPanel
         gc.insets = new Insets(2, 9, 0, 0);
         add(modButton, gc);
 
+        //4th row of value buttons
         
-        a_Button.setMargin( new Insets(0,0,0,0));
-        a_Button.setFont(new Font("Arial", Font.PLAIN, 16) );
-        a_Button.setEnabled(false);
+        a_Button.setMargin( new Insets(0,0,0,0));//get rid of margins to make text take up more room
+        a_Button.setFont(new Font("Arial", Font.PLAIN, 16) );//set the font
+        a_Button.setEnabled(false);//default set enabled
         gc.gridx = 2;
         gc.gridy = 0;
         gc.ipadx = 28;
@@ -287,8 +267,8 @@ public class calculatorButtonsPanel extends JPanel
         gc.insets = new Insets(-32, 9, 2, 0);
         add(f_Button, gc);
         
-        //Next col
-        
+        //Next set of buttons
+        //same setting as before
         oneButton.setMargin( new Insets(0,0,0,0));
         oneButton.setFont(new Font("Arial", Font.PLAIN, 16) );               
         gc.gridx = 3;
@@ -336,8 +316,8 @@ public class calculatorButtonsPanel extends JPanel
         add(mcButton, gc);
         
         
-//------- next col minus the zero button --------- //
-             //2
+
+        //Next row of value buttons
         twoButton.setMargin( new Insets(0,0,0,0));
         twoButton.setFont(new Font("Arial", Font.PLAIN, 16) );                       
         gc.gridx = 4;
@@ -347,7 +327,6 @@ public class calculatorButtonsPanel extends JPanel
         gc.insets = new Insets(-24, 9, 0, 0);
         add(twoButton, gc);
 
-               //5
 
         fiveButton.setMargin( new Insets(0,0,0,0));
         fiveButton.setFont(new Font("Arial", Font.PLAIN, 16) ); 
@@ -358,9 +337,6 @@ public class calculatorButtonsPanel extends JPanel
         gc.insets = new Insets(-16, 9, 0, 0);
         add(fiveButton, gc);
 
-               //8
-
-
         eightButton.setMargin( new Insets(0,0,0,0));
         eightButton.setFont(new Font("Arial", Font.PLAIN, 16) ); 
         gc.gridx = 4;
@@ -370,8 +346,6 @@ public class calculatorButtonsPanel extends JPanel
         gc.insets = new Insets(-8, 9, 0, 0);
         add(eightButton, gc);
 
-
-               //ce
         ceButton.setMargin( new Insets(0,0,0,0));
         ceButton.setFont(new Font("Arial", Font.PLAIN, 16) );    
         gc.gridx = 4;
@@ -380,7 +354,7 @@ public class calculatorButtonsPanel extends JPanel
         gc.ipady = 13;
         gc.insets = new Insets(0, 9, 0, 0);
         add(ceButton, gc);
-               //mr
+
         mrButton.setMargin( new Insets(0,0,0,0));
         mrButton.setFont(new Font("Arial", Font.PLAIN, 16) );
         gc.gridx = 4;
@@ -390,6 +364,7 @@ public class calculatorButtonsPanel extends JPanel
         gc.insets = new Insets(2, 9, 0, 0);
         add(mrButton, gc);
         
+        //needs to be added after this row because it take up two cols
         zeroButton.setMargin( new Insets(0,0,0,0));
         zeroButton.setFont(new Font("Arial", Font.PLAIN, 16) ); 
         gc.gridx = 3;
@@ -401,8 +376,7 @@ public class calculatorButtonsPanel extends JPanel
         add(zeroButton, gc);
 
         
-        //next row
-                       
+        //Next row of value buttons  
         decimalButton.setMargin( new Insets(0,0,0,0));
         decimalButton.setFont(new Font("Arial", Font.PLAIN, 16) );                       
         gc.gridx = 5;
@@ -411,8 +385,6 @@ public class calculatorButtonsPanel extends JPanel
         gc.ipady = 13;        
         gc.insets = new Insets(-32, 9, 2, 0);
         add(decimalButton, gc);
-
-                       //3
 
         threeButton.setMargin( new Insets(0,0,0,0));
         threeButton.setFont(new Font("Arial", Font.PLAIN, 16) );
@@ -423,10 +395,7 @@ public class calculatorButtonsPanel extends JPanel
         gc.insets = new Insets(-24, 9, 0, 0);
         add(threeButton, gc);
 
-
-                       //6
-
-        sixButton.setMargin( new Insets(0,0,0,0));
+       sixButton.setMargin( new Insets(0,0,0,0));
         sixButton.setFont(new Font("Arial", Font.PLAIN, 16) );
         gc.gridx = 5;
         gc.gridy = 3;
@@ -434,8 +403,6 @@ public class calculatorButtonsPanel extends JPanel
         gc.ipady = 13;        
         gc.insets = new Insets(-16, 9, 0, 0);
         add(sixButton, gc);
-
-                       //9
 
         nineButton.setMargin( new Insets(0,0,0,0));
         nineButton.setFont(new Font("Arial", Font.PLAIN, 16) );
@@ -447,9 +414,6 @@ public class calculatorButtonsPanel extends JPanel
         add(nineButton, gc);
 
 
-                       //C
-
-
         clearButton.setMargin( new Insets(0,0,0,0));
         clearButton.setFont(new Font("Arial", Font.PLAIN, 16) );
         gc.gridx = 5;
@@ -459,9 +423,6 @@ public class calculatorButtonsPanel extends JPanel
         gc.insets = new Insets(0, 9, 0, 0);
         add(clearButton, gc);
 
-
-                       //MS
-
         msButton.setMargin( new Insets(0,0,0,0));
         msButton.setFont(new Font("Arial", Font.PLAIN, 16) );
         gc.gridx = 5;
@@ -470,7 +431,7 @@ public class calculatorButtonsPanel extends JPanel
         gc.ipady = 13;        
         gc.insets = new Insets(2, 9, 0, 0);
         add(msButton, gc);
-        
+        //Next row of value buttons
 
         addButton.setMargin( new Insets(0,0,0,0));
         addButton.setFont(new Font("Arial", Font.PLAIN, 16) );
@@ -490,7 +451,6 @@ public class calculatorButtonsPanel extends JPanel
         gc.ipady = 13;   
         gc.insets = new Insets(-24, 64, 40, 0);
         add(subButton, gc);
-                       //*
 
 
         multButton.setMargin( new Insets(0,0,0,0));
@@ -502,7 +462,6 @@ public class calculatorButtonsPanel extends JPanel
         gc.insets = new Insets(-16, 64, 30, 0);
         add(multButton, gc);
 
-                       // /
 
         divButton.setMargin( new Insets(0,0,0,0));
         divButton.setFont(new Font("Arial", Font.PLAIN, 16) );
@@ -512,7 +471,6 @@ public class calculatorButtonsPanel extends JPanel
         gc.ipady = 13;        
         gc.insets = new Insets(-8, 64, 25, 0);
         add(divButton, gc);
-                       // plus minus
 
         signButton.setMargin( new Insets(0,0,0,0));
         signButton.setFont(new Font("Arial", Font.PLAIN, 16) );
@@ -522,8 +480,6 @@ public class calculatorButtonsPanel extends JPanel
         gc.ipady = 13;        
         gc.insets = new Insets(0, 64, 15, 0);
         add(signButton, gc);
-
-                       //m+
 
         
         mPlusButton.setMargin( new Insets(0,0,0,0));
@@ -535,8 +491,8 @@ public class calculatorButtonsPanel extends JPanel
         gc.insets = new Insets(2, 64, 8, 0);
         add(mPlusButton, gc);
                                
-//next
-
+        //Next row of function buttons
+        
         equalsButton.setMargin( new Insets(0,0,0,0));
         equalsButton.setFont(new Font("Arial", Font.PLAIN, 16) );
         gc.gridx = 7;
@@ -555,7 +511,7 @@ public class calculatorButtonsPanel extends JPanel
         gc.ipady = 13;        
         gc.insets = new Insets(-15, 64, 0, 2);
         add(recipButton, gc);
-                       //%
+                    
 
         percentButton.setMargin( new Insets(0,0,0,0));
         percentButton.setFont(new Font("Arial", Font.PLAIN, 16) );
@@ -568,8 +524,7 @@ public class calculatorButtonsPanel extends JPanel
 
 
 
-                       //sqrt
-
+     
 		sqrtButton.setMargin( new Insets(0,0,0,0));
 		sqrtButton.setFont(new Font("Arial", Font.PLAIN, 16) );
 		gc.gridx = 7;
@@ -579,8 +534,6 @@ public class calculatorButtonsPanel extends JPanel
 		gc.insets = new Insets(1, 64, 0, 2);
 		add(sqrtButton, gc);
 
-
-                       //m-
 
 		mMinusButton.setMargin( new Insets(0,0,0,0));
 		mMinusButton.setFont(new Font("Arial", Font.PLAIN, 16) );
@@ -596,10 +549,7 @@ public class calculatorButtonsPanel extends JPanel
 	
 	//Getters
 	
-	public ArrayList<JButton> getvalueButtons()
-	{
-		return valueButtons;
-	}
+
 	public JButton getZeroButton() 
 	{
 		return zeroButton;

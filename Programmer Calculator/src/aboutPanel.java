@@ -13,24 +13,28 @@ import javax.swing.JPanel;
  */
 public class aboutPanel extends JPanel
 {
-	BufferedImage image;
+	BufferedImage image;// what holds the image
 	public aboutPanel()
 	{
+		//Initiate image if the file exists
+		  try 
+		    {
+		    	//get image using the resouce folder inside this project
+				image = ImageIO.read(getClass().getResourceAsStream("/resources/help.png"));
+			} 
+		    catch (IOException e) {
 
+				e.printStackTrace();
+			}
 		
 	}
 	public void paintComponent(Graphics g)
 	{
+		//use parent paint 
 	    super.paintComponents(g);
 	    
-	    try 
-	    {
-			image = ImageIO.read(getClass().getResourceAsStream("/resources/help.png"));
-		} 
-	    catch (IOException e) {
-
-			e.printStackTrace();
-		}
+	  
+	    //draw image
 	    g.drawImage(image, -5, -20, null);
 	}
 	

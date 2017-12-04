@@ -16,11 +16,13 @@ import javax.swing.JRadioButton;
 
 public class baseTypePanel extends JPanel
 {
+	//crate the jradio buttons
 	JRadioButton hexButton,decButton,octButton,binButton;
 	ButtonGroup baseType;
 	
 	public baseTypePanel()
 	{
+		//instantiate teh buttons
 		hexButton = new JRadioButton("Hex");
 		decButton = new JRadioButton("Dec");
 		octButton = new JRadioButton("Oct");
@@ -28,18 +30,21 @@ public class baseTypePanel extends JPanel
 		
 		baseType = new ButtonGroup();
 		
+		// adding buttons to the group
 		baseType.add(hexButton);
 		baseType.add(decButton);
 		baseType.add(octButton);
 		baseType.add(binButton);
 		
+		//setting the default value
 		decButton.setSelected(true);
 		
+		//create border and layout
 		setBorder(BorderFactory.createEtchedBorder());
 		setLayout(new GridBagLayout());
 		GridBagConstraints gc = new GridBagConstraints();
 		
-		
+		//add the itmes to frame
         gc.anchor = GridBagConstraints.FIRST_LINE_START;
        
         gc.gridx = 0;

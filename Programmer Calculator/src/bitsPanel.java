@@ -2,7 +2,6 @@ import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 
-import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -15,7 +14,8 @@ import javax.swing.JTextArea;
  */
 public class bitsPanel extends JPanel
 {
-	JTextArea bitsTextArea;
+	//create text area
+	public JTextArea bitsTextArea;
 	public JScrollPane bitsScrollPane;
 
 	
@@ -23,15 +23,15 @@ public class bitsPanel extends JPanel
 	{
 
 		
-		//setBorder(BorderFactory.createEtchedBorder());
-        
+		
+        //instantiate text area itenm
 		bitsTextArea = new JTextArea(5,20);
-		
-		bitsScrollPane = new JScrollPane(bitsTextArea,JScrollPane.VERTICAL_SCROLLBAR_NEVER, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-		
+		bitsScrollPane = new JScrollPane(bitsTextArea,JScrollPane.VERTICAL_SCROLLBAR_NEVER, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);//disable scroll bar
+		//get rid of text wrap and line capabilities
 		bitsTextArea.setEditable(false);
 		bitsTextArea.setLineWrap(false);
 		
+		//setting the layout
 		setLayout(new GridBagLayout());
 		GridBagConstraints gc = new GridBagConstraints();
 		gc.gridx = 0;
@@ -39,6 +39,8 @@ public class bitsPanel extends JPanel
 		gc.ipadx = 537;
 		gc.ipady = 80;
 		add(bitsScrollPane,gc);
+		
+		//set what the bits text is
 		
 		String bitsPanel="                             00000000000000000000000000000000     \n\n"+
 				
@@ -49,12 +51,12 @@ public class bitsPanel extends JPanel
 		bitsTextArea.setText(bitsPanel);
 
 	}
-
+//getters
 	public JTextArea getBitsPanel() 
 	{
 		return bitsTextArea;
 	}
-
+//setters
 	public void setBitsPanel(JTextArea j)
 	{
 		bitsTextArea = j;

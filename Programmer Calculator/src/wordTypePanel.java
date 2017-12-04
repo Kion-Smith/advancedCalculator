@@ -16,11 +16,13 @@ import javax.swing.JRadioButton;
 
 public class wordTypePanel extends JPanel
 {
+	//create the jradio buttons
 	JRadioButton QwordButton,DwordButton,wordButton,byteButton;
 	ButtonGroup wordType;
 	
 	public wordTypePanel()
 	{
+		//instantiate the buttons
 		QwordButton = new JRadioButton("Qword");
 		DwordButton = new JRadioButton("Dword");
 		wordButton = new JRadioButton("Word");
@@ -28,17 +30,23 @@ public class wordTypePanel extends JPanel
 		
 		wordType = new ButtonGroup();
 		
+		
+		//adding buttons to the group
 		wordType.add(QwordButton);
 		wordType.add(DwordButton);
 		wordType.add(wordButton);
 		wordType.add(byteButton);
 		
+		//set layout and border
 		setLayout(new GridBagLayout());
 		setBorder(BorderFactory.createEtchedBorder());
 		GridBagConstraints gc = new GridBagConstraints();
 		
+		//set default value
 		QwordButton.setSelected(true);
 
+		
+		//adding the items
 	    gc.anchor = GridBagConstraints.FIRST_LINE_START;
 	    
         gc.gridx = 0;
